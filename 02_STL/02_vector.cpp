@@ -67,10 +67,10 @@ void explainVectors() {
     }
 
     //! for-each loop
-    // 'it' is the element of the v vector here!!!!
-    for (auto it : v)
+    // 'element' is the element of the v vector here!!!!
+    for (auto element : v)
     {
-        cout << it << " ";
+        cout << element << " ";
     }
 
     // * Deletion of vectors
