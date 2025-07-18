@@ -15,12 +15,12 @@ void explainList() {
     // begin, end, rbegin, rend, clear, insert, size, swap
 
     //! Note
-    // insert in vectors are costly
-    // push_front in lists are cheap
+    //* insert in vectors are costly as compared to push_front in list
 
     // push_front is cheap show me the insert... (wait, what?)
 }
 
+//* Both feaatures of vector and list
 void explainDeque() {
     deque<int> dq;
 
@@ -33,7 +33,6 @@ void explainDeque() {
     dq.pop_front(); // {4,1}
 
     dq.back();
-
     dq.front();
 
     // rest functions same as vector
@@ -42,7 +41,7 @@ void explainDeque() {
 
 //***Stack --> LIFO (Last in First out)
 
-void explainStack() //! O(1) --> everythig happens in constant time
+void explainStack() //! O(1) --> everything happens in constant time
 {
     stack<int> st;
     st.push(1);    // {1}

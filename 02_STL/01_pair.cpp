@@ -2,7 +2,7 @@
 #include <utility>
 using namespace std;
 
-// * Pairs
+// * Pair: container to store two data_types
 //? Part of utility lbrary
 void explainPairs()
 {
