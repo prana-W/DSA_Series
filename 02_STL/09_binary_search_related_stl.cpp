@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// https://www.youtube.com/watch?v=edJ19qIL8WQ
+
 //! Note:
 // Here all the array/vector/data_type must be sorted!! As we are using binary search under the hood!
 // Also, all these calculations are using O(log n) time complexity. Baseball huh?
@@ -55,8 +57,6 @@ void upperBoundSTL() {
     cout << upper_bound(arr, arr+6, -50) - arr << endl; // 0 (The first index)
 
     cout << upper_bound(arr, arr+6, 50) - arr << endl; // 6 (The index after the last)
-
-
 
     vector<int>v = {1, 4, 5, 6, 9, 9};
 
