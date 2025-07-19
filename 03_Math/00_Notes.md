@@ -1,12 +1,12 @@
 # Math
 
-1. Digit Concept
+1. Digit Concept ![[01_digit_drawing.excalidraw]] [[01_digit_drawing.excalidraw]]
     - Digit Extraction
     - Counting Digits 
         - By digit extraction
-        - By logarithmic operator [[01_digit_drawing.excalidraw]]
+        - By logarithmic operator 
     - Reverse Number
-    - Factors/Divisors [[01_digit_drawing.excalidraw]]
+    - Factors/Divisors
     - Prime Numbers
 
 	
