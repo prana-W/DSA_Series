@@ -5,3 +5,4 @@
 - Patterns (Old Physical Notes and Code) 16/07/25
 - STL (Code) 17/07/25
 - Math (Code and Obsidian) 20/07/25
+- Recursion (Code and Obsidian) 20/07/25
