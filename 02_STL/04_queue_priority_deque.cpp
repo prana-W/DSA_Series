@@ -2,61 +2,64 @@
 #include <iostream>
 using namespace std;
 
-void explainQueue()
-{ //* similar to stack but FIFO --> First in First Out
-  //! O(1) --> all happens in constant time
-    queue<int> q;
-    q.push(1);    //{1}
-    q.push(2);    // {1,2}
-    q.emplace(4); // {1,2,4}
+//* similar to stack but FIFO --> First in First Out
+//. O(1) --> all happens in constant time
 
-    q.back() += 5;    // 9 --> here back will mean 4
-    cout << q.back(); // prints last element 9
+void explainQueue() {
+  queue<int> q;
+  q.push(1);    //{1}
+  q.push(2);    // {1,2}
+  q.emplace(4); // {1,2,4}
 
-    // Q is {1,2,9}
-    cout << q.front(); // prints 1
+  q.back() += 5;    // 9 --> here back will mean 4
+  cout << q.back(); // prints last element 9
 
-    q.pop(); // {2,9} --> deletes the front one
+  // Q is {1,2,9}
+  cout << q.front(); // prints 1
 
-    cout << q.front(); // prints 2
+  q.pop(); // {2,9} --> deletes the front one
 
-    // size swap empty same as stack
+  cout << q.front(); // prints 2
+
+  // size swap empty same as stack
 }
 
+// ** Priority Queue **
 
-    // ** Priority Queue **
-    // -> that has the largest value statys at the top
-    //* the element stays in a descending order inside it (or lexically dedcreasing in case of strings)
-    // push --> O(log n)
-    // top --> O(1)
-    // pop --> O(log n)
+//. push --> O(log n)
+//. top --> O(1)
+//. pop --> O(log n)
 
-void explainPQ()
-{
-    //! Maximum Heap
-    priority_queue<int> pq;
+void explainPQ() {
 
-    pq.push(5);     // {5}
-    pq.push(2);     // {5,2}
-    pq.push(8);     // {8,5,2}
-    pq.emplace(10); // {10,8,5,2}
+ //! Maximum Heap
+ // the element stays in a descending order inside it (or lexically dedcreasing in case of strings)
 
-    cout << pq.top(); // prints 10
+  priority_queue<int> pq;
 
-    pq.pop(); // {8,5,2} --> 10 poped (removed)
+  pq.push(5);     // {5}
+  pq.push(2);     // {5,2}
+  pq.push(8);     // {8,5,2}
+  pq.emplace(10); // {10,8,5,2}
 
-    cout << pq.top(); // prints 8
+  cout << pq.top(); // prints 10
 
-    // size, swap, empty function same as others
+  pq.pop(); // {8,5,2} --> 10 poped (removed)
 
-    //! Minimum Heap
-    // Below is the syntax for minimum Heap (ascending order of elements)
-    priority_queue<int, vector<int>, greater<int>> pq; // -> for minimum element at the top
+  cout << pq.top(); // prints 8
 
-    pq.push(5);     // {5}
-    pq.push(2);     // {2,5}
-    pq.push(8);     // {2,5,8}
-    pq.emplace(10); // {2,5,8,10}
+  // size, swap, empty function same as others
 
-    cout << pq.top(); // prints 2
+  //! Minimum Heap
+  // Below is the syntax for minimum Heap (ascending order of elements)
+
+  priority_queue<int, vector<int>, greater<int>> pq; // -> for minimum element at the top
+
+  pq.push(5);     // {5}
+  pq.push(2);     // {2,5}
+  pq.push(8);     // {2,5,8}
+  pq.emplace(10); // {2,5,8,10}
+
+  cout << pq.top(); // prints 2
+
 }
