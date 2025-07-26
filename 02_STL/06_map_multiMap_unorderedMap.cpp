@@ -50,6 +50,9 @@ void explainUnorderedMap() {
   //* unique keys but not sorted
 }
 
+//! Note:
+// In map, any data structure, data type etc can be the key, however for unordered map, only the data types can be the key, like int, double, float, char, etc
+
 int main() {
   explainMap();
 }

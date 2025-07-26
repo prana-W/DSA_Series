@@ -52,7 +52,7 @@ int main() {
   int hash[256] = {0};
   
   for (int i = 0; i < s.size(); i++) {
-    hash[s[i]]++;
+    hash[s[i]]++; //! here s[i] gets auto casted into integer (that is its, ASCII value)
   }
 
   int q;
