@@ -16,3 +16,4 @@
     - Sorting Algorithm (with custom comparitor)
 - Math (Code and Notes) 20/07/25
 - Recursion (Code and Notes) 20/07/25
+- Hashing (Code) 26/07/25
