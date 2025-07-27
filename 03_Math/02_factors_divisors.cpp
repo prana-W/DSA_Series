@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// Check/Print all the divisors/factors of a given number in sorted order
+// Problem: Check/Print all the divisors/factors of a given number in sorted order
 
 //* Method-I (Brute Force)
 //. T.C -> O(n)
@@ -20,7 +20,6 @@ void bruteForce(int n) {
 void optimisesApproach(int n) {
 
   //* Method-II (Optimised Way)
-  // See obsidian notes
 
   // Use vector to store the data and then sort!
 
@@ -44,5 +43,5 @@ void optimisesApproach(int n) {
   for (auto element : arr) {
     cout << element << " ";
   }
-
+  
 }

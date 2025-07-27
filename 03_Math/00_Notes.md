@@ -1,5 +1,5 @@
-# Math ![[math_drawing.excalidraw]]
-[[math_drawing.excalidraw]]
+# Math
+
 - Digit Concept 
     - Digit Extraction
     - Counting Digits 
