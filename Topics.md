@@ -17,3 +17,4 @@
 - Math (Code and Notes) 20/07/25
 - Recursion (Code and Notes) 20/07/25
 - Hashing (Code) 26/07/25
+- Sorting (Code and Notes) 29/07/25
