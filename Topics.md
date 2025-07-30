@@ -18,3 +18,8 @@
 - Recursion (Code and Notes) 20/07/25
 - Hashing (Code) 26/07/25
 - Sorting (Code and Notes) 29/07/25
+    - Selection Sort
+    - Bubble Sort
+    - Insertion Sort
+    - Merge Sort
+    - Quick Sort
