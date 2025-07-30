@@ -53,6 +53,9 @@ void quickSort(vector<int> &arr, int low, int high) {
 
 }
 
+
+//! H.W: Write the same code for descending
+
 int main() {
 
 }

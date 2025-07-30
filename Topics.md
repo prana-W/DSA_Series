@@ -23,3 +23,7 @@
     - Insertion Sort
     - Merge Sort
     - Quick Sort
+- Arrays (Code and Notes) 30/07/25
+    - Largest Element
+    - Second Largest/Smallest Element
+    
