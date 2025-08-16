@@ -9,6 +9,8 @@ using namespace std;
 
 //* Parameterised Recursion
 // Parameterized recursion is a technique where a recursive function includes additional parameters to manage and track the state or progress of the computation.
+
+//! Here sum is the parameter that is storing the result of the problem
 void printSumParameterisedRecursion (int i, int sum = 0) {
 
     // We have passed n in the main function
@@ -21,6 +23,7 @@ void printSumParameterisedRecursion (int i, int sum = 0) {
 
 }
 
+//! Here fact is the parameter that is storing the result of the problem
 void factorialParameterisedRecursion (int i, int fact = 1) {
 
     // We pass n
@@ -31,6 +34,7 @@ void factorialParameterisedRecursion (int i, int fact = 1) {
 
     factorialParameterisedRecursion(i-1, fact*i);
 }
+
 //* Functional Recursion
 // Functional recursion is a programming technique where a function calls itself to solve a problem, often breaking it down into smaller, self-similar subproblems.
 // Use this if we have to actually return a value. Instead of printing anything
