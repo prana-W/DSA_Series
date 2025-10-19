@@ -29,7 +29,7 @@ int secondLargestBrute(int n, int arr[]) {
 }
 
 //* Method - II - Better Solution
-// Find the largest element in the first pass/traversal and then find another largest element now equals the largest element
+// Find the largest element in the first pass/traversal and then find another largest element which not equals the largest element
 //. T.C -> O(2n)
 int secondLargestBetter(int n, int arr[]) {
 
@@ -56,7 +56,7 @@ int secondLargestBetter(int n, int arr[]) {
 }
 
 //* Method - III - Optimal Solution
-// Traverse the entire array once and store the largestElement like we prvisouly did, if we find any new largestElement (> largest), store the previous value of it inside the secondLargest. Also, if the new element is not greater than largestElement, but greater than secondLargest element, we store that value inside the secondLargest element.
+// Traverse the entire array once and store the largestElement like we previsouly did, if we find any new largestElement (> largest), store the previous value of it inside the secondLargest. Also, if the new element is not greater than largestElement, but greater than secondLargest element, we store that value inside the secondLargest element.
 //. T.C -> O(n)
 int secondLargestOptimal(int n, int arr[]) {
   int largestElem = arr[0];

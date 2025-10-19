@@ -6,7 +6,7 @@ using namespace std;
 //* Method - I - Brute Force
 // Make a Set Data structure and iterate through the array and put each elements into the set. The set will only contain the unique elements in sorted order. Then iterate again through the array and replace it with the elements of the set (Note: Only the unique elements in the beggining of the array is our concern, rest elements doesn't matter to the verdict)
 //. T.C -> O(n*log n + n)
-//. S.C -> O(n),
+//. S.C -> O(n)
 // if all were unique elements, we would need n space for set
 void removeDuplicatesBrute(int n, int arr[]) {
   set<int> st;
