@@ -44,6 +44,8 @@ void rotateLeftBrute(int n, int arr[], int d) {
 //. Extra Space -> O(1)
 void rotateLeftOptimal(int n, int arr[], int d) {
 
+  d = d%n;
+
   // O(d)
   reverse(arr, arr + d); // Reverse the first portion
 
@@ -54,14 +56,58 @@ void rotateLeftOptimal(int n, int arr[], int d) {
   reverse(arr, arr + n); // Reverse the entire array
 }
 
-//! H.W: Do for right rotation, instead of left rotation
+
+// Problem 2: For right rotation
+
+// For right rotation (for d elements)
+
+//* Method - I (Brute Force)
+
+void rightRotationRight(int n, int arr[], int d) {
+
+  d = d%n;
+
+  vector<int>temp;
+  
+  // Store the portion which will come in the begining in a temp array
+  for (int i = n-d; i < n; i++) {
+    temp.push_back(arr[i]);
+  }
+  
+
+  for (int i = 0; i < n-d; i++) {
+    arr[i+d] = arr[i];
+  }
+
+
+  for (int i = 0; i < d; i++) {
+    arr[i] = temp[i];
+  }
+
+
+
+}
+
+//* Method - II (Optimal Solution)
+
+void rightRotationOptimal (int n, int arr[], int d) {
+  d = d%n;
+
+  reverse (arr, arr+(n-d));
+  reverse (arr+n-d, arr+n);
+
+  reverse(arr, arr+n);
+
+}
 
 int main() {
+
   int arr[9] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
 
-  rotateLeftOptimal(9, arr, 5);
+  rightRotationOptimal(9, arr, 5); // Passed by refrence, as we have an array here
 
   for (auto element : arr) {
     cout << element << " ";
   }
+
 }

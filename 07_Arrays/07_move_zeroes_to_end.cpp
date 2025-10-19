@@ -61,7 +61,7 @@ void moveZeroesOptimalSirSolution(int n, int arr[]) {
 }
 
 //* Method - III - My Solution
-//. T.C -> O(n)
+//. T.C -> O(n + x), where x is the number of zero elements
 //. Extra Space -> O(1)
 void moveZeroesOptimal(int n, int arr[]) {
   int j = 0; // Index tracking the position of the next incoming element (non-zero)
