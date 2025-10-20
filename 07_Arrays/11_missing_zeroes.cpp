@@ -4,7 +4,7 @@ using namespace std;
 // Problem:1 Find the number missing in the array (n-1 elements in the array, Total element should have been n, find the missing one)
 
 //* Method - I (Brute Force)
-// brute force through all the possible values and again loopo through the array, if found toggle the flag and move on, else break and report that as the answer
+// Brute force through all the possible values and again loopo through the array, if found toggle the flag and move on, else break and report that as the answer
 
 void bruteForceFindMissing (int n, int arr[]) {
 
@@ -16,6 +16,7 @@ void bruteForceFindMissing (int n, int arr[]) {
         for (int j = 0; j < n; j++) {
             if (arr[j] == i) {
                 flag = true; // If found, put flag as true
+                break;
             }
         }
 
@@ -36,12 +37,12 @@ void betterFindMissing (int n, int arr[]) {
     vector<int>hashArr(n+1, 0);
 
     for (int i = 0; i < n; i++) {
-        hashArr[arr[i]] = 1;
+        hashArr[arr[i] - 1] = 1;
     }
 
     for (int i = 0; i < n+1; i++) {
         if (hashArr[i] == 0) {
-            cout << i << endl;
+            cout << i+1 << endl;
             break;
         }
     }
@@ -96,10 +97,5 @@ void optimalXORMethod (int n, vector<int>arr) {
 
     // We can also make a single loop and xor the entire into one and improve the time complexity
 
-
-}
-
-
-int main() {
 
 }
