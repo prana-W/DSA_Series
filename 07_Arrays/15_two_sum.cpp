@@ -9,11 +9,10 @@ typedef long long int ll;
 //* Method - I (Brute Force)
 // Pick one element, and then pick all the other elements and so on
 
-
 //. T.C -> O(n^2)
 void brute (int n, int arr[], int target) {
     for (int i = 0; i < n; i++) {
-        for (int j = i+1; j < n; j++){
+        for (int j = i+1; j < n; j++) {
             if (arr[i] + arr[j] == target) {
                 cout << i << " " << j << endl;
                 return;

@@ -2,9 +2,9 @@
 using namespace std;
 typedef long long int ll;
 
-// Problem: Find the length of the longest subarray which has the sum equal to k. Also, the original array given would only contain postives. The next part will be for array with both positive and negative
+// Problem: Find the length of the longest subarray which has the sum equal to k.
 
-//* Method - IA (Brute Force)
+//* Method - IA (Brute Force for all types of elements)
 // Generate all the subarrays possible and find the sum of all of them and compare with the 'k'
 
 // For extreme brute, we will have two pointers i and j, every element between them will be the part of our subarray, then we will find the sum of that sub-array with another loop. Giving us:
@@ -39,7 +39,7 @@ void extremeBruteForce (int n, int arr[], int k) {
     cout << ans << endl;
 }
 
-//* Method - IB (Brute Force)
+//* Method - IB (Brute Force for all types of elements)
 
 // Now we will optimise the extremebruteForce
 // We will keep a track of the sum while moving j itself
@@ -108,12 +108,11 @@ void solution (vector<int>arr, ll k) {
 
     cout << maxLen << endl;
 
-
 }
  
 
 
-//* Method - III (Optimal solution)
+//* Method - III (Optimal solution for non-negative)
 // Two-Pointer
 //! Works only for postivies and zeroes. For postives + negative elements, method-II was the optimal solution
 
@@ -137,7 +136,9 @@ void optimalForPostives (vector<int>arr, ll k) {
         if (sum == k) {
             maxLen = max(maxLen, right-left+1);
         }
+
         right++;
+        
         if (right < n) sum += arr[right];
     }
 

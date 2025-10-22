@@ -73,6 +73,7 @@ void betterHashApproach(int n, int arr[]) {
 
 }
 
+//* Method - II.V (Hash By Map)
 
 //. T.C -> O(n*log(m) + O(m)) for ordered map and O(n + m) for normal case in unorderd_map, but it could be O(n*m + m) in worst case for unordered_map, where n is the size of the array and m is the size of the map
 void betterHashByMap (int n, int arr[]) {
