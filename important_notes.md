@@ -10,3 +10,9 @@
     - Recursive space (see recursion notes)
     - Actual space (see 07_Arrays/05_leftt_rotate... notes)
     - Extra space (see 07_Arrays/05_leftt_rotate... notes)
+
+# Lectures Covered
+
+lec 1 - 29
+
+lec 45 -
