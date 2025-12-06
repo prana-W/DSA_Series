@@ -10,9 +10,10 @@
     - Recursive space (see recursion notes)
     - Actual space (see 07_Arrays/05_leftt_rotate... notes)
     - Extra space (see 07_Arrays/05_leftt_rotate... notes)
+- Make the code readable. Break complex codes into multiple functions and then use that function instead of doing all the code into a single block.
 
 # Lectures Covered
 
-lec 1 - 29
+lec 1 - 34
 
 lec 45 -
