@@ -55,7 +55,7 @@ void betterSolution(int n, int arr[]) {
 }
 
 //* Method - III (Optimal Solution)
-//! Kandane's Algorithm
+//! Kadane's Algorithm
 
 //. T.C -> O(n)
 //. S.C -> O(1)
