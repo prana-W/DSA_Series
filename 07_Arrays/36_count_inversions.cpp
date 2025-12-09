@@ -30,9 +30,10 @@ void brute(vector<int>arr) {
 
 // int countInversion = 0; //! Taking a Global variable
 
-//. T.C -> O(n*log(n))
+//. T.C -> O(n*log(n)) for the total solution
 //. S.C -> O(n), for the temporary array used in the merge sort
 //! Note: Here, we are distorting the input array, if we don't want that we can just make a copy of that array and perform all the actions
+
 int merge(vector<int>& arr, int low, int mid, int high) {
 
     int left = low;
@@ -71,6 +72,8 @@ int merge(vector<int>& arr, int low, int mid, int high) {
     for (int i = low; i <= high; i++) {
         arr[i] = temp[i - low];
     }
+
+    return countInversion;
 }
 
 int mergeSort(vector<int>& arr, int low, int high) {
@@ -80,19 +83,18 @@ int mergeSort(vector<int>& arr, int low, int high) {
 
     int mid = (low+high)/2;
 
-    countInversion += mergeSort(arr, low, mid);
-    countInversion += mergeSort(arr, mid+1, high);
+    countInversion += mergeSort(arr, low, mid); // past of first portion
+    countInversion += mergeSort(arr, mid+1, high); // past of second portion
 
-    countInversion += merge(arr, low, mid, high);
+    countInversion += merge(arr, low, mid, high); // present after combining the two portions
 
     return countInversion;
 
 }
 
-
+//! Here we are distorting the array (sorting due to merge sort), we could just make a copy of the input array and then make changes to that array
 int optimalSolution(vector<int>& arr) {
 
     return mergeSort(arr, 0, arr.size()-1);
-
 
 }
