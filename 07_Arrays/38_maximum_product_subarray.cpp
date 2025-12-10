@@ -48,7 +48,7 @@ int optimalSolution(vector<int>& nums) {
         for (int i = 0; i < nums.size(); i++) {
 
             pref = pref * (long long)(nums[i]);
-            suff = suff * (long long)(nums[n - i -1]);
+            suff = suff * (long long)(nums[nums.size() - i -1]);
 
             ans = max(ans, pref);
             ans = max(ans, suff);
