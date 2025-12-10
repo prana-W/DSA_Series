@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-//? Problem 1: Rotated (in left maybe) sorted and unique array. Find a target
+//? Problem 1: Rotated (in left maybe) sorted and unique array. Find the index of the target
 
 //* Method - I (Brute Force)
 // Linear Search
