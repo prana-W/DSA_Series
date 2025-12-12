@@ -99,7 +99,7 @@ void betterSolution(vector<vector<int>> arr) {
 
 // Instead of using seperate space, we keep the tracking inside the matrix itself. This way we optimise the space complexity.
 
-//. T.C -> O(n*m)
+//. T.C -> O(2*n*m)
 //. S.C -> O(1)
 void optimalSolution(vector<vector<int>> arr) {
 
@@ -126,7 +126,7 @@ void optimalSolution(vector<vector<int>> arr) {
     }
   }
 
-  for (int i = 1; i < n - 1; i++) {
+  for (int i = 1; i < n; i++) {
     for (int j = 1; j < m; j++) {
       if (arr[i][j] != 0) {
 
@@ -165,7 +165,7 @@ void optimalSolution(vector<vector<int>> arr) {
 
 // Finally, we solvede the entire problem in O(n*m) Time complexity with no extra space
 
-//. T.C -> O(n*m)
+//. T.C -> O(2*n*m)
 //. S.C -> O(1)
 void optimalAndEasySolution(vector<vector<int>> matrix) {
   int n = matrix.size();    // row size

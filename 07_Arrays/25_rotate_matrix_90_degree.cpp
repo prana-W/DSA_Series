@@ -7,25 +7,24 @@ using namespace std;
 
 //. T.C -> O(n^2)
 //. S.C -> O(n^2)
-void bruteForce(vector<vector<int>>matrix) {
+void bruteForce(vector<vector<int>> &matrix) {
+ 
+    // To initialize the ans with the same size
+  vector<vector<int>> ans = matrix;
 
-	int n = matrix.size();
+  int n = matrix.size();
 
-	vector<vector<int>>ans = matrix;
+  // By observation we derived at this
 
-	// row0 -> coln-1
-	// row1 -> coln-2
-	// rown-1 -> col0
+  for (int row = 0; row < n; row++) {
+    for (int col = 0; col < n; col++) {
 
-	// row0 means matrix[0][...]
-	// col1 means matrix[...][1]
+      ans[col][n - row - 1] = matrix[row][col];
 
-	for (int i = 0; i < n; i++) {
-		for (int j  = 0; j < n; j++) {
-			ans[j][n-i-1] = matrix[i][j];
-		}
-	}
+    }
+  }
 
+  matrix = ans;
 }
 
 //* Method - II (Optimal Solution)
@@ -38,24 +37,23 @@ void bruteForce(vector<vector<int>>matrix) {
 
 //. T.C -> O(n^2)
 //. S.C -> O(1)
-void optimalSolution(vector<vector<int>>matrix) {
-    int n = matrix.size();
+void optimalSolution(vector<vector<int>> matrix) {
+  int n = matrix.size();
 
-    // Taking Transpose of the matrix in-place
+  // Taking Transpose of the matrix in-place
 
-    for (int i = 0; i < n; i++) {
-        for (int j = i; j < n; j++) {
-            swap(matrix[i][j], matrix[j][i]);
-        }
+  for (int i = 0; i < n; i++) {
+    for (int j = i; j < n; j++) {
+      swap(matrix[i][j], matrix[j][i]);
     }
+  }
 
-    // Taking reverse of each of the row
+  // Taking reverse of each of the row
 
-    for (int i = 0; i < n; i++) {
-        // for (int j = 0; j < n/2; j++) {
-        //     swap(matrix[i][j], matrix[i][n-j-1]);
-        // }
-        reverse(matrix[i].begin(), matrix[i].end());
-    }
-
+  for (int i = 0; i < n; i++) {
+    // for (int j = 0; j < n/2; j++) {
+    //     swap(matrix[i][j], matrix[i][n-j-1]);
+    // }
+    reverse(matrix[i].begin(), matrix[i].end());
+  }
 }
