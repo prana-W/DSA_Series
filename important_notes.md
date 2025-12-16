@@ -12,6 +12,7 @@
     - Extra space (see 07_Arrays/05_leftt_rotate... notes)
 - Make the code readable. Break complex codes into multiple functions and then use that function instead of doing all the code into a single block.
 - Try to avoid global variables
+- If asked to find a maximum or minimum, chances are we can use Binary Search on the answer
 # Lectures Covered
 
 lec 1 - 34
