@@ -57,7 +57,9 @@ void betterSolution(int n, int arr[]) {
 // Simply sort and return the middle element
 
 //. T.C -> O(nlog(n))
-//. S.C -> O(n), due to merge sort
+//. S.C -> O(n), due to merge sort or can be any other if using other sorting algorithm
+
+//! sort() uses many different algorithms internally, hence its space complexity can't be determined correctly
 int betterBetterSolution(vector<int> &nums) {
 
   sort(nums.begin(), nums.end());

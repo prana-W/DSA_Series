@@ -41,7 +41,7 @@ int partition(vector<int> &arr, int low, int high) {
 //. T.C -> O(n log2 (n)) - Best and Average
 //. O(n^2) - Worst if we end up choosing the largest or smallest element as the pivot always
 
-//. S.C -> O(1) excluding recursive stack space
+//. S.C -> O(1) excluding recursive stack space, or O(log(n)) for the recursive space
 void quickSort(vector<int> &arr, int low, int high) {
 
   if (low >= high) return;
