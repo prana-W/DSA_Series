@@ -1,11 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-//! Note: In this solution we are assuming all the coloumn arrays are sorted!!
+//! Note: In this solution we are assuming all the rows arrays are sorted!!
 // Problem: You have been given a non-empty grid ‘mat’ with 'n' rows and 'm' columns consisting of only 0s and 1s. All the rows are sorted in ascending order. Your task is to find the index of the row with the maximum number of ones. Note: If two rows have the same number of ones, consider the one with a smaller index. If there's no row with at least 1 zero, return -1
 
 //* Method - I (Brute Force)
-// Simply iterate each row and track the number of ones in each row and store if maximum ones. Optimal for the unsorted col array
+// Simply iterate each row and track the number of ones in each row and store if maximum ones. Optimal for the unsorted row array
 //. T.C -> O(n*m)
 //. S.C -> O(1)
 
