@@ -19,6 +19,8 @@ using namespace std;
 
 //* Method - III (Optimised Solution)
 
+//! Note: There could be at max 2 elements that occur more than n/3. (Why? bro just think!)
+
 //. T.C -> O(n)
 //. S.C -> O(1)
 vector<int> optimalSolution(vector<int>arr) {
