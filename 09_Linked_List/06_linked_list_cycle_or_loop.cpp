@@ -27,7 +27,7 @@ class ListNode {
 
 // Make a set data structure and keep on adding new Nodes in it. We will iterate in the LL, if there is a cycle, we will find it during the iteration and will hence return from there, else if there is no cycle, we will iterate the entire LL and reach the end, hence returing false
 
-//. T.C -> O(n*log(n))
+//. T.C -> O(n*log(n)), we can use unordered_set to get O(1) lookup so then average would be O(n)
 //. S.C -> O(n)
 bool bruteForce(ListNode *head) {
 
