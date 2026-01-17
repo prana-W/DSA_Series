@@ -57,28 +57,30 @@ ListNode* reverseList(ListNode* head) {
 // We are basically making a LL in reverse sequence (from tail to head) and returing it
 
 //. T.C -> O(n)
-//. S.C -> O(1), no extra space apart from the answer LL
-
+//. S.C -> O(1)
 ListNode* optimalApproach(ListNode* head) {
 
-        if (!head) {
-            return head;
-        }
+        if (!head || !head->next) return head;
 
-        ListNode* newHead = nullptr; // This is the head of the newly created LL
-        ListNode* temp = head; // This is for iterating in the input LL
+        ListNode* prev = nullptr;
+        ListNode* temp = head;
 
         while(temp) {
 
-            ListNode* newNode = new ListNode(temp->data);
+            // Store the next node
+            ListNode* front = temp->next;         
+            
+            // Modify the next of current node to previous node
+            temp->next = prev;
 
-            newNode->next = newHead;
+            // current node become prev
+            prev = temp;
 
-            newHead = newNode;
-            temp = temp->next;         
-
+            // temp moves to the next element of the LL before tampering
+            temp = front;
+            
         }
 
-        return newHead;
+        return prev;     
         
 }
