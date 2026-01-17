@@ -52,9 +52,7 @@ ListNode* reverseList(ListNode* head) {
 }
 
 //* Method - III (Optimal Solution)
-//! Iterative Approach
-// Iterate thorugh the LL, store the prev Node, also called by newHead here (of the new LL), and make a new LL with the link of newly create Node (with same value as current node) pointing to the prev node (of this newly created LL), return the head of this newly created LL, when the main (input) LL is exhausted. 
-// We are basically making a LL in reverse sequence (from tail to head) and returing it
+//! Iterative Approach (In-place approach)
 
 //. T.C -> O(n)
 //. S.C -> O(1)
