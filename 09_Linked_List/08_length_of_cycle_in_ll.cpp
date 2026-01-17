@@ -28,7 +28,7 @@ class Node {
 
 //* Method - II (Optmial Approach) 
 //! Turtle and Hare Approach
-// Use the 07_linked_list_cycle_II.cpp method to determine the head of the cycle. Both turtle and hare meets at the head of the cycle at then end of the previous question. Now, keep on moving hare one by one and let the turtle be at the head of the cycle only. Count the number of nodes before both hare and turtle meet at the head of the cycle again, at that point, return the count
+// Use Turtle and Hare Approach to first find a point where turtle and hare meets at a point after that keep the turtle fixed at that point and move hare in the cycle in x speed (or 1 step at a time) till it meets the turtle again. Count the nunber of nodes in the entire iteration.
 
 //. T.C -> O(n)
 //. S.C -> O(1)
@@ -41,14 +41,9 @@ int optimalApproach(Node *head) {
             slow = slow->next;
             fast = fast->next->next;
             
+            // When slow and head meet each other inside the cycle, keep the slow pointer fixed and keep on moving fast pointer one by one, till it meets the slow pointer again
             if (slow == fast) {
-                slow = head;
-                
-                while(slow != fast) {
-                    slow = slow->next;
-                    fast = fast->next;
-                }
-                
+                                
                 int cnt = 1;
                 
                 fast = fast->next;
