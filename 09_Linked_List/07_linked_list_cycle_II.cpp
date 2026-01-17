@@ -48,6 +48,7 @@ ListNode *bruteForce(ListNode *head) {
 }
 
 //* Method - II (Optimal Approach)
+//! Turtle and Hare Algorithm
 // See notes
 // When turtle and hare meet, they are (n-m) into the loop. If we put turtle back into head and move both turtle and hare @ the same speed of x, they would again meet at a point and that would be the starting node of the cycle
 
