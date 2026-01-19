@@ -70,7 +70,14 @@ Node* optimalSolution(Node* head) {
             ones->next = twoHead->next;
             
         }
-        
-        return zeroHead->next;
+
+        Node* intitalHead = zeroHead->next;
+
+        // Delete the intial pre-heads of all the values (these all were just for dummy)
+        delete (zeroHead);
+        delete (oneHead);
+        delete (twoHead);
+
+        return intitalHead;
         
 }
