@@ -28,6 +28,8 @@ class ListNode {
 
 //. T.C -> O(max(l1, l2))
 //. S.C -> O(max(l1, l2)), this is return the answer
+
+//! Note: S.C can be optimised if we simply modify the longer LL to return the answer. At worst case we might need to create one extra node (for carry at end), which results in O(1) S.C, but for that we have to modify the input LLs, which is generally not advised
 ListNode* optimalApproach(ListNode* l1, ListNode* l2) {
 
         ListNode* temp1 = l1;
@@ -52,6 +54,8 @@ ListNode* optimalApproach(ListNode* l1, ListNode* l2) {
 
             if (temp1) temp1 = temp1->next;
             if (temp2) temp2 = temp2->next;
+
+            curr = curr->next;
         }
 
         if (carry) {
@@ -60,6 +64,10 @@ ListNode* optimalApproach(ListNode* l1, ListNode* l2) {
             curr->next = newNode;
         }
 
-        return dummy->next;
+        ListNode* finalAns = dummy->next;
+
+        delete (dummy); //! To free the unncessarhy memory creatd
+
+        return finalAns;
         
 }
