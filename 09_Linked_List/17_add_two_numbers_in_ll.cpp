@@ -24,55 +24,42 @@ class ListNode {
 };
 
 //* Method - I (Optimal Approach)
-// Iterate both the LLs simulatenously, if we reach the end of one LL and the other LL still ahs some remining nodes, then keep on adding new Nodes with the value 0, to the shorter LL. This is so we can add both and the final result doesn't effect
-// Now both have the same size at the end, now simply add them node-by-node and carry-on the carry 
+// We iterate both the LL simulateneoulsy adn include the val if that node exists, else we don't. Keep on doing it and adding the answer to a new LL (this is to avoid modifying the input LL)
 
-//. T.C -> O(2*max(l1, l2))
-//. S.C -> O(abs(l1-l2)), new Nodes are created to match the length of the larger LL
+//. T.C -> O(max(l1, l2))
+//. S.C -> O(max(l1, l2)), this is return the answer
 ListNode* optimalApproach(ListNode* l1, ListNode* l2) {
 
         ListNode* temp1 = l1;
-        ListNode* prev1 = nullptr;
-
         ListNode* temp2 = l2;
-        ListNode* prev2 = nullptr;
 
-        while(temp1 && temp2) {
-            if(temp2->next && !temp1->next) {
-                temp1->next = new ListNode(0);
-            }
-            else if (temp1->next && !temp2->next) {
-                temp2->next = new ListNode(0);
-            }
-
-            temp1 = temp1->next;
-            temp2 = temp2->next;
-        }
-
-        temp1 = l1;
-        temp2 = l2;
+        ListNode* dummy = new ListNode(-1);
+        ListNode* curr = dummy;
 
         int carry = 0;
 
-        while(temp1 && temp2) {
-            int sum = temp1->val + temp2->val + carry;
+        while(temp1 || temp2) {
 
-            temp1->val = sum%10;
+            int sum = carry;
+
+            if (temp1) sum += temp1->val;
+            if (temp2) sum += temp2->val;
+
+            ListNode* newNode = new ListNode(sum%10);
+            curr->next = newNode;
 
             carry = sum/10;            
 
-            if(temp1->next) temp1 = temp1->next;
-            else break;
-
-            temp2 = temp2->next;
+            if (temp1) temp1 = temp1->next;
+            if (temp2) temp2 = temp2->next;
         }
 
         if (carry) {
             ListNode* newNode = new ListNode(carry);
 
-            temp1->next = newNode;
+            curr->next = newNode;
         }
 
-        return l1;
+        return dummy->next;
         
 }
