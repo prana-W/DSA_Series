@@ -28,6 +28,9 @@ class Node {
 //! Note: Always use delete() keyword to free mememory created using new keyword
 
 // Here head_ref is the pointer pointing to the address block containing the address iof the actual head. This is pointer-to-pointer. Normally we return Node* in pointer, hence we can move head pointer and return the new pointer, but here we have void function hence to actually cause the head pointer of the LL, we need to use this way. *head would just be the copy of the address of the actual head. Hence we do **head_ref. To access the actual head address we do *head_ref
+
+//. T.C -> O(n)
+//. S.C -> O(1)
 void deleteAllOccurOfX(struct Node** head_ref, int x) {
         
         Node* previous = nullptr;
