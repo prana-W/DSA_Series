@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+//* Method - I (Using Fixed size) -> Size decided when initialising the stack
+
 //. T.C -> O(1), all operations takes constant time
 //. S.C -> O(n), this is the total size
 class ArrayStack {
@@ -60,26 +62,45 @@ public:
     }
 };
 
-// Main Function
-int main() {
-    ArrayStack stack;
-    vector<string> commands = {"ArrayStack", "push", "push", "top", "pop", "isEmpty"};
-    vector<vector<int>> inputs = {{}, {5}, {10}, {}, {}, {}};
+//* Method - II (Using Dynamic Array) -> Size is resizable
 
-    for (size_t i = 0; i < commands.size(); ++i) {
-        if (commands[i] == "push") {
-            stack.push(inputs[i][0]);
-            cout << "null ";
-        } else if (commands[i] == "pop") {
-            cout << stack.pop() << " ";
-        } else if (commands[i] == "top") {
-            cout << stack.top() << " ";
-        } else if (commands[i] == "isEmpty") {
-            cout << (stack.isEmpty() ? "true" : "false") << " ";
-        } else if (commands[i] == "ArrayStack") {
-            cout << "null ";
-        }
+class myStack {
+    vector<int> arr;
+
+public:
+
+    // push operation
+    void push(int x) {
+        arr.push_back(x);
     }
 
-    return 0;
-}
+    // pop operation
+    int pop() {
+        if (arr.empty()) {
+            cout << "Stack Underflow" << endl;
+            return -1;
+        }
+        int val = arr.back();
+        arr.pop_back();
+        return val;
+    }
+
+    // peek operation
+    int peek() {
+        if (arr.empty()) {
+            cout << "Stack is Empty" << endl;
+            return -1;
+        }
+        return arr.back();
+    }
+
+    // check if stack is empty
+    bool isEmpty() {
+        return arr.empty();
+    }
+    
+    // current size
+    int size() {
+        return arr.size();
+    }
+};
