@@ -10,7 +10,7 @@ using namespace std;
 // 2. Infix to Postfix (with reversion evluation side)
 // 3. Modified Postfix reversal to get the final answer
 
-//. T.C -> O(n)
+//. T.C -> O(3n)
 //. S.C -> O(n)
 string infixToPrefix(string &s) {
         
