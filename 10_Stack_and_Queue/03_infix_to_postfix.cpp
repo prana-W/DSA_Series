@@ -15,7 +15,11 @@ using namespace std;
 */
 //! Note: '^' is evaluated from right to left, while rest of the operators are evaluated from left to right
 
- string infixToPostfix(string& s) {
+//! Note: If we want to have left to right evaluatoin of a same priority, then just keep adding the top() to answer and pop() the stack till false. If we want to have right to left evaluation of same priority, then just store it in the stack and use it later in answer
+
+//. T.C -> O(n)
+//. S.C -> O(n), for storing it in stack. Also O(n) for returning the answer
+string infixToPostfix(string& s) {
         
     map<char, int>priority;
     priority['^'] = 3;
@@ -36,13 +40,10 @@ using namespace std;
             ans += s[i];
 
         }
-        
         // To handle opening bracket
         else if (s[i] == '(') {
             st.push(s[i]);
-            continue;
         }
-        
         // To handle closing bracket
         else if (s[i] == ')') {
             while(st.top() != '(') {
@@ -66,10 +67,8 @@ using namespace std;
             ans += st.top();
             st.pop();
         }
-        
-        // Finally push s[i]
-        st.push(s[i]);
-            
+            // Finally push s[i]
+            st.push(s[i]);  
         }
         
     }
