@@ -2,10 +2,10 @@
 using namespace std;
 
 //* Method - I (Hard)
-// Convert Postfix to Infix and then infix to prefix
+// COnvert Prefix to Infix and then infix to Postfix
 
 //* Method - II (Easy)
-// Iterate in the string, if it is a operand, store it in the stack, if it is a operator, concatenate the top two elements into one, and use the operator as the prefix to the commbined string, finally return the top element of the stack at the end
+// Reverse the expression, then use the method of Postfix_to_prefix to get the expression which is again reversed back
 
 bool isOperand(char s) {
         if ((s >= 'a' && s <= 'z') || (s >= 'A' && s <= 'Z') || (s >= '0' && s <= '9'))
@@ -13,14 +13,19 @@ bool isOperand(char s) {
         
         return false;
 }
+
+string preToPost(string pre_exp) {
+        // reverse the string, use postfix to prefix on this, reverse it again
+        
+        string s = pre_exp;
+        reverse(s.begin(), s.end());
     
-string postToPre(string s) {
         
         stack<string>st;
         
         for (int i = 0; i < s.size(); i++) {
+            
             if (isOperand(s[i])) {
-                
                 string temp = "";
                 temp += s[i];
                 
@@ -29,14 +34,18 @@ string postToPre(string s) {
             else {
                 string temp = st.top();
                 st.pop();
+                
                 temp = s[i] + st.top() + temp;
                 st.pop();
                 
                 st.push(temp);
-                
             }
+            
         }
         
-        return st.top();
         
+        string ans = st.top();
+        reverse(ans.begin(), ans.end());
+        
+        return ans;
 }
