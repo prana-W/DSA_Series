@@ -2,7 +2,7 @@
 using namespace std;
 
 //* Method - I (Hard)
-// COnvert Prefix to Infix and then infix to Postfix
+// Convert Prefix to Infix and then infix to Postfix
 
 //* Method - II (Easy)
 // Reverse the expression, then use the method of Postfix_to_prefix to get the expression which is again reversed back
