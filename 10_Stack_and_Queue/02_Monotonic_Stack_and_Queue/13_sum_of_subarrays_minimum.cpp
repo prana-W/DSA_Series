@@ -77,6 +77,8 @@ int bruteForce(vector<int>& arr) {
 // For each element, try to find its next smaller element and previous smaller or equal element using a monotonic stack. Then we can predict the total number of elements to its right and left combineing which in different combinations which can result in the element itself being the minimum. This is similar concept as used in the first approach. Find all the subarrays in which the minimum is a particular element and then use that contribution. 
 // We end up looking the entire array after the PSEE and before the NSE, for this portion, our element would be the minimum. 
 
+// Note: Incase of duplicates in the array, we are hence doing PSEE and NSE (equal not considered in next smaller element) to avoid duplication, double counting of a subarray
+
 //! See notes
 
 //. T.C -> O(3n)
