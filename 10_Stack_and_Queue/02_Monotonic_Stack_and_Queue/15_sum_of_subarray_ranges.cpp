@@ -6,7 +6,7 @@ using namespace std;
 
 //. T.C -> O(n^2)
 //. S.C -> O(1)
-long long subArrayRanges(vector<int>& nums) {
+long long bruteForce(vector<int>& nums) {
 
         int n = nums.size();
 
