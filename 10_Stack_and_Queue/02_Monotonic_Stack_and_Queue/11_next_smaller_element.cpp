@@ -3,6 +3,7 @@ using namespace std;
 
 // Same as before, but here only one condition inside if staments will change
 
+//. T.C -> O(2n), O(n) for the outer loop and O(n) for the stack while loop in worst case
 vector<int> nextSmallerElement(vector<int>& arr) {
         
         vector<int>ans(arr.size(), -1);

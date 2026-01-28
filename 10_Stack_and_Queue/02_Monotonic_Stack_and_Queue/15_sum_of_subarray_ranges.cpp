@@ -34,28 +34,28 @@ long long bruteForce(vector<int>& nums) {
 
 // Using the concept of NGE, PGEE, NSE, PSEE, we find the frequency of all the subarrays in which the particular element was minimum and maximum
 
-//. T.C -> O(5n), O(4n) for the four helper function and O(n) for main loop
+//. T.C -> O(9n), O(2n * 2) for the four helper function and O(n) for main loop
 //. S.C -> O(8n), O(2n) in each helper function, one for stack and one for array
 
 vector<int>nextSmaller(vector<int>& nums) {
 
         int n = nums.size();
 
-        stack<pair<int, int>>st;
+        stack<int>st;
         vector<int>nse(n);
 
         for (int i = n-1; i >= 0; i--) {
 
-            while(!st.empty() && st.top().second >= nums[i]) {
+            while(!st.empty() && nums[st.top()] >= nums[i]) {
                 st.pop();
             }
 
-            if (!st.empty() && st.top().second < nums[i]) {
-                nse[i] = st.top().first;
+            if (!st.empty() && nums[st.top()] < nums[i]) {
+                nse[i] = st.top();
             }
             else nse[i] = n;
 
-            st.push({i, nums[i]});
+            st.push(i);
         }
 
         return nse;
@@ -66,20 +66,20 @@ vector<int>previousSmallerAndEqual(vector<int>& nums) {
 
         int n = nums.size();
 
-        stack<pair<int, int>>st;
+        stack<int>st;
         vector<int>psee(n);
 
         for (int i = 0; i < n; i++) {
-            while(!st.empty() && st.top().second > nums[i]) {
+            while(!st.empty() && nums[st.top()] > nums[i]) {
                 st.pop();
             }
 
-            if (!st.empty() && st.top().second <= nums[i]) {
-                psee[i] = st.top().first;
+            if (!st.empty() && nums[st.top()] <= nums[i]) {
+                psee[i] = st.top();
             }
             else psee[i] = -1;
 
-            st.push({i, nums[i]});
+            st.push(i);
         }
 
         return psee;
@@ -90,21 +90,21 @@ vector<int>nextGreater(vector<int>& nums) {
 
         int n = nums.size();
 
-        stack<pair<int, int>>st;
+        stack<int>st;
         vector<int>nge(n);
 
         for (int i = n-1; i >= 0; i--) {
 
-            while(!st.empty() && st.top().second <= nums[i]) {
+            while(!st.empty() && nums[st.top()] <= nums[i]) {
                 st.pop();
             }
 
-            if (!st.empty() && st.top().second > nums[i]) {
-                nge[i] = st.top().first;
+            if (!st.empty() && nums[st.top()] > nums[i]) {
+                nge[i] = st.top();
             }
             else nge[i] = n;
 
-            st.push({i, nums[i]});
+            st.push(i);
         }
 
         return nge;
@@ -115,20 +115,20 @@ vector<int>previousGreaterAndEqual(vector<int>& nums) {
 
         int n = nums.size();
 
-        stack<pair<int, int>>st;
+        stack<int>st;
         vector<int>pgee(n);
 
         for (int i = 0; i < n; i++) {
-            while(!st.empty() && st.top().second < nums[i]) {
+            while(!st.empty() && nums[st.top()] < nums[i]) {
                 st.pop();
             }
 
-            if (!st.empty() && st.top().second >= nums[i]) {
-                pgee[i] = st.top().first;
+            if (!st.empty() && nums[st.top()] >= nums[i]) {
+                pgee[i] = st.top();
             }
             else pgee[i] = -1;
 
-            st.push({i, nums[i]});
+            st.push(i);
         }
 
         return pgee;

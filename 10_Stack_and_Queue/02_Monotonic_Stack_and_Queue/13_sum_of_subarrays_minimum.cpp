@@ -81,7 +81,7 @@ int bruteForce(vector<int>& arr) {
 
 //! See notes
 
-//. T.C -> O(3n)
+//. T.C -> O(5n), O(2n) for each NSE and PSEE and O(n) for final pass
 //. S.C -> O(4n)
 int optimalApproach(vector<int>& arr) {
 
@@ -89,37 +89,37 @@ int optimalApproach(vector<int>& arr) {
         long long int lim = 1e9 + 7;
         long long int ans = 0;
 
-        stack<pair<int, int>>st, st2;
+        stack<int>st, st2;
         vector<int>nse(n); // To find the index of NSE
         vector<int>psee(n); // To find the index of PSEE
 
         for (int i = 0; i < n; i++) {
 
-            while(!st.empty() && st.top().second > arr[i]) {
+            while(!st.empty() && arr[st.top()] > arr[i]) {
                 st.pop();
             }
 
-            if (!st.empty() && st.top().second <= arr[i]) {
-                psee[i] = st.top().first;
+            if (!st.empty() && arr[st.top()] <= arr[i]) {
+                psee[i] = st.top();
             }
             else psee[i] = -1; // Assume PSEE exists at hypothetical -1 index (to  take the entire left portion)
 
-            st.push({i, arr[i]});
+            st.push(i);
 
         }
         
         for (int i = n-1; i >= 0; i--) {
 
-            while(!st2.empty() && st2.top().second >= arr[i]) {
+            while(!st2.empty() && arr[st2.top()] >= arr[i]) {
                 st2.pop();
             }
 
-            if (!st2.empty() && st2.top().second < arr[i]) {
-                nse[i] = st2.top().first; 
+            if (!st2.empty() && arr[st2.top()] < arr[i]) {
+                nse[i] = st2.top(); 
             }
             else nse[i] = n; // Assume NSE exists at hypothetical n index, (to take the entire right portion)
 
-            st2.push({i, arr[i]});
+            st2.push(i);
         }
 
         for (int i = 0; i < n; i++) {
