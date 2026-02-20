@@ -16,17 +16,14 @@ class Node {
         }
 };
 
-//! Root Left Right
+//! Left Root Right
 
 //. T.C -> O(n), n is the number of nodes
-//. S.C -> O(height), where height is the height of the tree and when the Tree is skewed then height = n (total nodes), hence O(n) at worst case
-void preOrder(Node* node) {
-
+//. S.C -> o(height), in worst case of skewed O(n)
+void inorder(Node* node) {
     if (!node) return;
 
+    inorder(node->left);
     cout << node->data << " ";
-
-    preOrder(node->left);
-    preOrder(node->right);
-
+    inorder(node->right);
 }
