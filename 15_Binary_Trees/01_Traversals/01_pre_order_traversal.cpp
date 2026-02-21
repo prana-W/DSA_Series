@@ -16,6 +16,8 @@ class Node {
         }
 };
 
+//* Method - I (Recursive Method)
+
 //! Root Left Right
 
 //. T.C -> O(n), n is the number of nodes
@@ -30,3 +32,5 @@ void preOrder(Node* node) {
     preOrder(node->right);
 
 }
+
+//* Method - II (Iterative Method)
