@@ -1,27 +1,25 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
-class Node {
+class TreeNode {
+    public:
+        int val;
+        TreeNode* left;
+        TreeNode* right;
 
     public:
-        int data;
-        Node* left;
-        Node* right;
-
-    public:
-        Node(int val) {
-            data = val;
+        TreeNode(int val1) {
+            val = val1;
             left = nullptr;
             right = nullptr;
         }
 };
 
 int main() {
-    Node* root = new Node(1);
+    TreeNode* root = new TreeNode(1);
 
-    root->left = new Node(2);
-    root->right = new Node(3);
+    root->left = new TreeNode(2);
+    root->right = new TreeNode(3);
 
-    root->left->right = new Node(5);
+    root->left->right = new TreeNode(5);
 }

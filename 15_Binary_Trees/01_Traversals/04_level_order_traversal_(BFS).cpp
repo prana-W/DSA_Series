@@ -61,13 +61,13 @@ vector<vector<int>> levelOrder(TreeNode* root) {
 }
 
 //* Method - II (Recursive Approach)
-// Use a simple matrix of nodes to store all the nodes of each level and a level parameter in the recurive function. Inside the function, iterate the array of nodes of previous level and push get their left and right nodes and store them in an array of currLevel and store it in an array and finally push in the ans array (matrix of nodes). At the end since we have to return matrix of values, create the matrix of values from the matrix of nodes
+// Use a simple matrix of nodes to store all the nodes of each level. Inside the function, iterate the array of nodes of previous level and push get their left and right nodes and store them in an array of currLevel and store it in an array and finally push in the ans array (matrix of nodes). At the end since we have to return matrix of values, create the matrix of values from the matrix of nodes
 
 //. T.C -> O(2n)
 //. S.C -> O(n + height), O(n) for the matrix of nodes and O(height) for the recursive stack
 
 // Recursive Function
-void levelorder(vector<vector<TreeNode*>>& ans, int level) {
+void levelorder(vector<vector<TreeNode*>>& ans) {
 
         vector<TreeNode*>currLevel;
 
@@ -83,7 +83,7 @@ void levelorder(vector<vector<TreeNode*>>& ans, int level) {
 
         ans.push_back(currLevel);
 
-        levelorder(ans, level+1);
+        levelorder(ans);
        
 }
 
@@ -92,11 +92,10 @@ vector<vector<int>> revursiveApproach(TreeNode* root) {
         if (!root) return {};
 
         // Manually doing for level 1
-        int level = 1;
         vector<vector<TreeNode*>>ans;
         ans.push_back({root});
 
-        levelorder(ans, level+1);
+        levelorder(ans);
 
         // Converting the matrix of nodes to simply matrix of values
         vector<vector<int>>fAns;
