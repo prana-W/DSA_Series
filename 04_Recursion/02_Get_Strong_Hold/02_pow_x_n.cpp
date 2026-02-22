@@ -40,6 +40,7 @@ double bruteIterative(double x, int n) {
 }
 
 //* Method - II (Iterative and Optimal)
+//! Fast Exponentiation - Binary Exponentiation
 // Concept: 5^10 == (5^2)^5 == 25^5
 // If n is even, we can make x = (x*x) and half our n (n = n/2), this can save us a lot of iterations, as the n becomes half instantly.
 // If n is odd, just do like the above method 5^9 = 5 * 5^8
@@ -85,6 +86,7 @@ double iterativeOptimal(double x, int n) {
 }
 
 //* Method - III (Recursive and Optimal)
+//! Fast Exponentiation - Binary Exponentiation
 // Do the above iterative approach using recursion
 
 //. T.C -> O(log(n)), due to n becoming half each time
@@ -95,11 +97,11 @@ double recursiveFun(double x, int n) {
         // Edge case
         if (n == 0) return 1;
 
-        if ((n%2) == 0) return pow(x*x, n/2);
+        // When n is odd, we just multiply normally with a lower power
+        if (n&1) return (x * pow(x, n-1));
 
-        // When n is odd
-        return (x * pow(x, n-1));
-
+        // For even power, we do our trick
+        return pow(x*x, n/2);
 }
 
 double recursiveOptimal(double x, int n) {
