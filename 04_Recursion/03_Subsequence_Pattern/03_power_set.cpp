@@ -4,11 +4,11 @@ using namespace std;
 //* Method - I (Recursive Approach)
 // Go to each index, either exclude that or include that recursively in a temp variable. All the varibales we use is with pass by reference to optimise space complexity by avoiding copy again and again
 
-//. T.C -> O(2^n * n), There are approx. (2^n) subsequences, and forming each takes in average O(n) time. Also to sort N=2^n elements, it takes O(2^n * log(2^n)) -> O(2^n * n) again
+//. T.C -> O(2^n * n), There are approx. (2^n) subsequences, and copying (push_back) each subsequene into the ans array takes in average O(n) time. Also to sort N=2^n elements, it takes O(2^n * log(2^n)) -> O(2^n * n) again
 //. S.C -> O(n + 2^n * n), O(n) due to recursive stack space and O(2^n * n) for storing the answer and then sorting the array and then returning the answer
 void subsequence(int index, string& s, string& temp, vector<string>& ans) {
         if (index == s.size()) {
-            ans.push_back(temp);
+            ans.push_back(temp); //! O(n)
             return;
         }
         

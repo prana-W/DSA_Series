@@ -8,7 +8,7 @@ using namespace std;
 
 // Check if a string has valid parentheses
 
-//. T.C -> O(2^(2n) * (2n + 2n)), length of string is 2n, total strings generated is 2^(2n) and to create each string it take O(2n) TC and also to check if valid or not it takes O(2n)
+//. T.C -> O(2^(2n) * (2n + 2n)), length of string is 2n, total strings generated is 2^(2n) and to copy each string into ans it takes O(2n) TC and also to check if valid or not it takes O(2n)
 //. S.C -> O(2n), due to recursive stack space (excluding space taken to store the answer)
 
 bool isValid(string s) {
@@ -44,12 +44,12 @@ vector<string> generateParenthesis(int n) {
 //! Total number of valid parentheses is equal to the Catalan Number
 // To create each string it takes O(2n) time complexity (length of string)
 // C(n) = (2n)! / (n! * (n+1)!)
-//. T.C -> O(C(n) * (2n)) 
+//. T.C -> O(C(n) * (2n)), there are C(n) answer and O(2n) to copy (push_back) the string into ans
 //. S.C -> O(2n), due to recursive stack space (excluding answer), to store the answer in ans array, it takes an additional (C(n) * n) space
 
 void generate(int n, string s, int opening, int closing, vector<string>& ans) {
         if (s.size() == 2*n) {
-            ans.push_back(s);
+            ans.push_back(s); //! O(2n)
             return;
         } 
 

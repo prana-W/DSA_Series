@@ -7,7 +7,7 @@ using namespace std;
 //! If all elements are non-negative then,
 // We can further optimize it by pruning, by returning instanly without inclusion, if at any step the sum reaches greater than k, then return instantly without going further
 
-//. T.C -> O(2^n * n)
+//. T.C -> O(2^n * n), O(2^n) subsequences and O(n) to copy (push_back) the subsequence into the ans array
 //. S.C -> O(n) extra space, due to recursive stack space
 
 void findSubsequence(int ind, int sum, int k, vector<int> &cur, 
@@ -22,7 +22,7 @@ void findSubsequence(int ind, int sum, int k, vector<int> &cur,
         if(sum == k) {
 
             // add the subset in result
-            res.push_back(cur);
+            res.push_back(cur); //! O(n)
         }
         return;
     }
