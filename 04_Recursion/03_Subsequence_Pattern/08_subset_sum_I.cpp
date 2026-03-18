@@ -11,18 +11,12 @@ vector<int> bitMaskingMethod(vector<int>& arr) {
     vector<int>ans;
     int n = arr.size();
     
-    for (int i = 0; i < (1 << n); i++) {
+    for (int mask = 0; mask < (1 << n); mask++) {
         
         int sum = 0;
-        int num = i;
         
-        for (int j = 0; j < n; j++) {
-            if (num&1) sum += arr[j];
-            
-            num = num >> 1;
-            
-            if (!num) break;
-            
+        for (int i = 0; i < n; i++) {
+            if (mask & (1<<i)) sum += arr[i];
         }
         
         ans.push_back(sum);
