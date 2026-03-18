@@ -7,7 +7,7 @@ using namespace std;
 // Pick each element one by one, and then make a second loop to iterate again in the loop, if we find another occurence of that element, then, its not the answer, else it will be the answer
 
 //. T.C -> O(n^2)
-//. S.C -> O(n)
+//. S.C -> O(1)
 void bruteSol(int n, int arr[]) {
 
   for (int i = 0; i < n; i++) {
