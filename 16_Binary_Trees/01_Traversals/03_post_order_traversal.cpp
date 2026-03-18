@@ -36,7 +36,7 @@ void postorder(TreeNode* root, vector<int>& ans) {
 
 // Iterate till st is empty. During each iteration, pop the top and push that to st2, and push that node's left and right (is exists) in st and continue. At the end, push all the elmenets of the st2 into ans and that is the answer
 
-// Note: Instead of using the second stack, we can just store the elements directly in the ans array and at the end, just reverse the array. (This would be kind of similar to preorder traveral iterative approach)
+// Note: Instead of using the second stack, we can just store the elements directly in the ans array and at the end, just reverse the array. (This would be kind of similar to preorder traveral iterative approach) i.e. just like in pre-order try to inmplement root right left and store in ans array, then just reverse it at the end
 
 //. T.C -> O(n)
 //. S.C -> O(height)
@@ -70,3 +70,47 @@ vector<int> iterativeMethodI(TreeNode* root) {
 
 //* Method - III (Iterative Approach)
 //! Using single stack (even without any reversals on ans array)
+
+//. T.C -> O(2n)
+//. S.C -> O(n)
+vector<int> postorderTraversal(TreeNode* root) {
+
+    if(!root) return {};
+
+    TreeNode* curr = root;
+
+    vector<int>ans;
+    stack<TreeNode*>st;
+
+    while(curr || !st.empty()) {
+
+        if (curr) {
+            st.push(curr);
+            curr = curr -> left;
+        }
+        
+        else {
+            TreeNode* temp = st.top()->right;
+
+            if (!temp) {
+                temp = st.top();
+                st.pop();
+
+                ans.push_back(temp->val);
+
+                while(!st.empty() && temp == st.top()->right) {
+                    temp = st.top();
+                    st.pop();
+
+                    ans.push_back(temp->val);
+                } 
+            }
+
+            else curr = temp;
+        }
+
+    }
+
+    return ans;
+        
+}
