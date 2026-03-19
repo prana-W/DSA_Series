@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+//! Subset is any set of elements, whereas subsequence is set of elements in their relative order of occurence
+
 //* Method - I (Bit Masking Method)
 // Create a bit mask from 0 till less than 1 << n, each bit represents if a particular element is included or not
 
