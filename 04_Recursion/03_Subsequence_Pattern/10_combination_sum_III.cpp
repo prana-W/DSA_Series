@@ -5,6 +5,8 @@ using namespace std;
 
 // Solve this using simple include/exclude method
 
+//. T.C -> O(2^9 * k)
+//. S.C -> O(k), for recursive stack space
 void solve(int index, vector<int>& arr, int& sum, int& n, int& k, vector<int>& ds, vector<vector<int>>& ans) {
 
     if (ds.size() == k && sum == n) {

@@ -8,6 +8,8 @@ using namespace std;
 
 // Sort the input array and pass it to recursive funciton, also store the answer in a set to avoid duplicates and have a ascending order, at last put all the elements of set into the matrix
 
+//. T.C -> O(n^2 * 2^n), We generate all 2^N possible subsets, and copying each subset into temporary storage costs up to O(N). Additionally, inserting each subset into a balanced BST-based set costs O(log(2^N)) = O(N), resulting in an extra O(N) factor. Combining these gives O(N * 2^N + N² * 2^N) ≈ O(N² * 2^N).
+//. S.C -> O(2^n * n + n), O(2^n * n) for storing and O(n) for recursion depth
 void solve(int index, vector<int>& arr, vector<int>& ds, set<vector<int>>& ans) {
         if (index == arr.size()) {
             ans.insert(ds);
@@ -46,14 +48,16 @@ vector<vector<int>> subsetsWithDup(vector<int>& nums) {
 
 // Sort and use the iteration way to include all the indices till the end, also include every variation in ans without any checks and return when index is at the end
 
+//. T.C -> O(2^n*n + n*log(n))
 void solve(int index, vector<int>& arr, vector<int>& ds, vector<vector<int>>& ans) {
         
     //! All the variation are stored directly in ans
     ans.push_back(ds);
 
-    if (index == arr.size()) {
-        return;
-    }
+    // Below is not required. Tjink why...
+    // if (index == arr.size()) {
+    //     return;
+    // }
 
     for (int i = index; i < arr.size(); i++) {
 
