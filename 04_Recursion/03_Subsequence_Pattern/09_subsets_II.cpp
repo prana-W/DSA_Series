@@ -2,7 +2,7 @@
 using namespace std;
 
 //? Pg: 74
-
+//! check solution
 //* Method - I 
 // Inlcude/Exclude concept
 
