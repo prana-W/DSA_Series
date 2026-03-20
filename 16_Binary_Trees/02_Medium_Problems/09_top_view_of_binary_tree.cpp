@@ -20,6 +20,8 @@ class Node {
 //. T.C -> O(n)
 //. S.C -> O(n)
 vector<int> topView(Node *root) {
+
+    if(!root) return {};
     
     // (Node, pair(rowIndex, colIndex))
     queue<pair<Node*, pair<int, int>>>q;
