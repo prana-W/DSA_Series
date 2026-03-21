@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// Problem: https://www.naukri.com/code360/problems/path-in-a-tree_3843990
+
 class TreeNode {
     public:
         int data;
@@ -16,6 +18,9 @@ class TreeNode {
 };
 
 // Make a helper function that searches and keeps on storing elements in a path array, if the node is found, it instantly returns true, it also returns true if any of its path thorugh left or right also returns true
+
+//. T.C -> O(n)
+//. S.C -> O(n)
 
 bool getPath(TreeNode* root, int x, vector<int>& path) {
 	if (!root) return false;
