@@ -49,7 +49,7 @@ int betterMemoization(int n, vector<int>& height, vector<int>& dp) {
         
         return dp[n];
         
-    }
+}
 
 int minCost(vector<int>& height) {
         
@@ -90,8 +90,6 @@ int betterTabulation(vector<int>& height) {
 int optimal(vector<int>& height) {
         
         if (height.size() == 1) return 0;
-        
-        vector<int>dp(height.size(), -1);
         
         int prev2 = 0;
         int prev = abs(height[1] - height[0]);
