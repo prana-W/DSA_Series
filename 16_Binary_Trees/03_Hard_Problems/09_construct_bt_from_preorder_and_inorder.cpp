@@ -17,7 +17,11 @@ class TreeNode {
         }
 };
 
+//! Note: Here unique node values are given, hence a simple map<int, int> can be used to hash the indices of node values in inorder traversal
+
 // Store the inordere node values wioth their index in a hash map, to quickly find the indices. THen choose the first element of preorder as the root, and the elements in the left of that root in inorder as left subtree and elements in the righr of the root in inorder as right subtree and recursively solve it. In base condition check if both the indices are ok.
+
+//! Doubt: What to do incase of dupliacte node values, in such a case simple map implementation will fail, and so will something like map<int, queue<int>>, i have checked it, so what to do in that case?? (Do GFG quetion for this)
 
 //. T.C -> O(n), for unordered map in average
 //. S.C -> O(n) for hash map and recursive stack space
