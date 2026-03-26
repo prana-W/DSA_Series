@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// The problem uses the concept of connected graphs(see pg: 141)
+//! The problem uses the concept of connected graphs(see pg: 141)
 
 //* Method - I (Adjancency Matrix)
 // In the problem we are given a adjency matrix, here we have solved it using the matrix itself
@@ -53,7 +53,7 @@ void dfs(int node, vector<bool>& visited, vector<vector<int>>& adj) {
     }
 
 } 
-int findCircleNum(vector<vector<int>>& isConnected) {
+int methodII(vector<vector<int>>& isConnected) {
 
     int n = isConnected.size();
 
@@ -65,7 +65,7 @@ int findCircleNum(vector<vector<int>>& isConnected) {
 
             // Ignoring self-loops
             if (isConnected[i][j] == 1 && i != j) neighbour.push_back(j);
-            
+
         }
         adj.push_back(neighbour);
     }
