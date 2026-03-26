@@ -17,7 +17,7 @@ class TreeNode {
 
 //* Method - I (Iterative Approach)
 
-//. T.C -> O(log(n)), eash steps eleiminate half of the tree, just like binary search, but in case of worst case (like unbalanced tree), it is O(n)
+//. T.C -> O(log(n)), each steps eliminate half of the tree, just like binary search, but in case of worst case (like unbalanced tree), it is O(n)
 //. S.C -> O(1), as we are using iterative approach and not recursive approach
 TreeNode* searchBST(TreeNode* root, int val) {
 
