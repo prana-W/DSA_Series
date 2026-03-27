@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-//? Pg: 105  
+//? Pg: 106
 
 class TreeNode {
     public:
@@ -20,8 +20,8 @@ class TreeNode {
 //. T.C -> O(n + n), O(n) as we are going to each node and O(n) for amortized as we are going to last node of each leftsubtree
 //. S.C -> O(1)
 
-vector<int>getInorder(TreeNode* root) {
-    vector<int>inorder;
+vector<int>getpreorder(TreeNode* root) {
+    vector<int>preorder;
 
     TreeNode* curr = root;
 
@@ -29,11 +29,11 @@ vector<int>getInorder(TreeNode* root) {
 
         // Case 1, when no left subtree existed, then simply print the root and go to right subtree
         if (!curr->left) {
-            inorder.push_back(curr->val);
+            preorder.push_back(curr->val);
             curr = curr->right;
         }
 
-        // Try to go to lastNode (rightmost node) of left subtree and make the threded connection between that node and the root if doesn't exist, else break the thread and push the root and move to right subtree
+        // Try to go to lastNode (rightmost node) of left subtree and make the threded connection between that node and the root if doesn't exist, else break the thread and move to right subtree
         else {
 
             TreeNode* nextNode = curr->left;
@@ -43,19 +43,19 @@ vector<int>getInorder(TreeNode* root) {
                 nextNode = nextNode->right;
             }
 
-            // Case 2: it means we are actually at a non-threaded lastNode (of the left subtree), simply make a threaded connection from last node of left subtree and root and then only enter the curr to left subtree
+            // Case 2: it means we are actually at a non-threaded lastNode (of the left subtree), simply make a threaded connection from last node of left subtree and root, print the root and then only enter the curr to left subtree
             if (!nextNode->right) {
 
                 nextNode->right = curr;
+                preorder.push_back(curr->val);
                 curr = curr->left;
 
             }
 
-            // Case 3: if right node exists for this which is actually pointing to curr, it means there already exist a threaded connection, so break the connection, push the root and move to right subtree
+            // Case 3: if right node exists for this which is actually pointing to curr, it means there already exist a threaded connection, so break the connection and just move to right subtree
             else {
 
                 nextNode->right = nullptr;
-                inorder.push_back(curr->val);
                 curr = curr->right;
 
             }
@@ -64,5 +64,5 @@ vector<int>getInorder(TreeNode* root) {
 
     }
 
-    return inorder;
+    return preorder;
 }
