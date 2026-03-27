@@ -58,7 +58,7 @@ bool bfsSingleComponent(int V, vector<vector<int>>& edges) {
 //. T.C -> O(V + 2E)
 //. S.C -> O(V)
 
-//! Note: We can also do below without storing the parent node and simply checking if a node has more than one neighobour that is visited, becuase every ndoe will have one neighbout visited (their parent), if it has more than one, it means that it is some otehr node that was visited by some other path and hence a cycle exists 
+//! Note: We can also do below without storing the parent node and simply checking if a node has more than one neighobour that is visited, becuase every ndoe will have one neighbout visited (their parent), if it has more than one, it means that it is some otehr node that was visited by some other path and hence a cycle exists
 
 bool bfsComponent(int node, vector<bool>& visited, vector<vector<int>>& adj) {
 
@@ -111,48 +111,41 @@ bool isCycle(int V, vector<vector<int>>& edges) {
 //* Method - II (DFS, Multiple Components)
 // Using DFS instead of BFS for multiple component graph
 
-//! Concept: Instead of storing a pair of node and its parent as in above methods, another method is to keep track of neighbours that is already visited, if we find it to be more than one, it means a cycle exit!!, as every node will have its parent as visited, so if we find more than one neighbours another such node exists ans hence such a path exist. We culd have done it by passing on the parent in recursive function, but just to do it in another way, we have chosen this approach
-
 //. T.C -> O(V + 2E)
 //. S.C -> O(V)
 
-bool dfs(int node, vector<bool>& visited, vector<vector<int>>& adj) {
+// DFS function to detect cycle
+bool dfs(int node, int parent, vector<int> adj[], vector<int>& visited) {
+    // Mark current node visited
+    visited[node] = 1;
 
-    visited[node] = true;
-    
-    int cnt = 0;
-    
-    for (auto it : adj[node]) {
-        if (!visited[it]) {
-            if(dfs(it, visited, adj)) return true;
+    // Traverse neighbors
+    for (int neighbor : adj[node]) {
+
+        // If neighbor not visited, recurse
+        if (!visited[neighbor]) {
+            if (dfs(neighbor, node, adj, visited)) return true;
         }
-        else cnt++;
-        
-        if (cnt > 1) return true;
+
+        // If neighbor visited and not parent, cycle exists
+        else if (neighbor != parent) {
+            return true;
+        }
     }
-    
+
+    // No cycle found from this path
     return false;
 }
 
-bool isCycle(int V, vector<vector<int>>& edges) {
-    
-    vector<bool>visited(V, false);
-    vector<vector<int>>adj(V);
-    
-    // Creating adjancncy list from input
-    for (int i = 0; i < edges.size(); i++) {
-        int u = edges[i][0];
-        int v = edges[i][1];
-        
-        adj[u].push_back(v);
-        adj[v].push_back(u);
-    }
-    
-    // Doing BFS for all the components, and checking if either gives a cycle
+// Function to check cycle in graph
+bool isCycle(int V, vector<int> adj[]) {
+    vector<int> visited(V, 0);
+
+    // Check all components
     for (int i = 0; i < V; i++) {
-        if (!visited[i] && dfs(i, visited, adj)) return true;
+        if (!visited[i]) {
+            if (dfs(i, -1, adj, visited)) return true;
+        }
     }
-    
     return false;
-    
 }
