@@ -24,7 +24,7 @@ int brute(vector<int>& nums) {
 }
 
 //* method - II (Better Solution, Memoization)
-//! Bottom-Up
+//! Top-Down (required to base case)
 
 // We find the maxSumTillIthIndex, in main we call the function for n-1 and n-2, as the end house could be either (n-1)th or (n-2)th, then use dp to find it recursively
 
@@ -53,7 +53,7 @@ int better(vector<int>& nums) {
 }
 
 //* Method - III (Optimal, Tabulation, Not Space Optimised)
-//! Iterative (Bottom-Up)
+//! Iterative (Bottom-Up, base case to required)
 
 //. T.C -> O(n)
 //. S.C -> O(n), for dp
