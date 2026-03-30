@@ -13,8 +13,8 @@
 - Make the code readable. Break complex codes into multiple functions and then use that function instead of doing all the code into a single block.
 - Try to avoid global variables
 - If asked to find a maximum or minimum, chances are we can use Binary Search on the answer
-# Lectures Covered
 
-lec 1 - 34
+# Important Concepts to be Learnt:
 
-lec 45 -
+- Fermat's Little Theorem (naah not lil at all)
+- Smallest Prime Factor

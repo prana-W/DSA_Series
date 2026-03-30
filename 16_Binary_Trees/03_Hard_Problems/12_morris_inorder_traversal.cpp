@@ -18,7 +18,7 @@ class TreeNode {
 };
 
 //. T.C -> O(n + n), O(n) as we are going to each node and O(n) for amortized as we are going to last node of each leftsubtree
-//. S.C -> O(1)
+//. S.C -> O(1), extra space, as if we were to print the valuees, we won't have to store anything
 
 vector<int>getInorder(TreeNode* root) {
     vector<int>inorder;
