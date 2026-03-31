@@ -28,6 +28,8 @@ void dfs(int r, int c, vector<vector<char>>& board) {
 
 void surroundedRegion(vector<vector<char>>& board) {
 
+    // DFS in boundary cells
+
     // Do for Row-0 and Row-end
     for(int j = 0; j < board[0].size(); j++) {
         dfs(0, j, board);
@@ -48,3 +50,5 @@ void surroundedRegion(vector<vector<char>>& board) {
     }
     
 }
+
+//! It can also be solved using BFS ofcourse
