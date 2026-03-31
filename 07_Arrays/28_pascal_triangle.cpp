@@ -10,10 +10,13 @@ using namespace std;
 //! Concept:
 // Element: (r-1)C(c-1), for the element in rth row and cth coloumn
 
-//. T.C -> O(r)
+//. T.C -> O(min(r, n-r))
 //. S.C -> O(1)
 int nCr(int n, int r) {
   long long res = 1;
+
+  //! Using Property nCr = nC(n-r) for optimising
+  r = min(r, n-r);
 
   // Other way could be to get numberator and denominator and then divide them both
   for (int i = 0; i < r; i++) {
