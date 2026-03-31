@@ -1,6 +1,32 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+//! (TUF Methods, DP on Subsequences) ---------------------------------------
+// Using the concept of pick and not-pick. Either skip the current index and go to next index immeditely or pick the current index and go to the next's next index (as we can't take adjacent indices)
+
+//* Method - I (Brute Force)
+//! Here we are going from n-th to 0th
+
+int solve(int ind, vector<int>& nums) {
+    if (ind == 0) return nums[ind];
+    if (ind <  0) return 0;
+
+    int pick = nums[ind] + solve(ind-2, nums);
+    int notPick = 0 + solve(ind-1, nums);
+
+    return max(pick, notPick);
+}
+int brute(vector<int>& nums) {
+    int n = nums.size();
+
+    return solve(n-1, nums);
+}
+
+// Similarly as below, we can memoize it and also form tabulation methods etc
+
+
+//! (My Methods) ------------------------------------------
+
 //* Method - I (Brute Force, Recursive)
 
 // We choose the current index and either index+2 or index+3 (whichever gives maximum answer) recursively
