@@ -3,6 +3,8 @@ using namespace std;
 
 // Just like 03_grid_unqiue_path, here keep track of the minimum sum. Also for the out-of-boundaries, treat there sum as INT_MAX, to avoid that path
 
+//! In case of negatives, initialise dp array with INT_MIN, to avoid wrong checking
+
 //* Method - I (Memoization DP)
 
 //. T.C -> O(m*n)
