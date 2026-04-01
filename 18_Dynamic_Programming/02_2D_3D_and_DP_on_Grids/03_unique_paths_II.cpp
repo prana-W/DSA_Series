@@ -127,5 +127,3 @@ int uniquePathsWithObstacles(vector<vector<int>>& grid) {
 
     return lastRow[0];      
 }
-
-//* 
