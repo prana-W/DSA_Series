@@ -49,8 +49,7 @@ int uniquePaths(int m, int n) {
     dp[m-1][n-1] = 1; // Base value for DP
 
     // We need to find the path from (0, 0) to end
-    pathsTillEnd(0, 0, m, n, dp);
-    return dp[0][0];
+    return pathsTillEnd(0, 0, m, n, dp);
     
 }
 
