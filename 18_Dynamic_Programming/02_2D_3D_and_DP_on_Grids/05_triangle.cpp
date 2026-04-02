@@ -5,6 +5,9 @@ using namespace std;
 
 //* Method - I (Memoization DP)
 
+//. T.C -> O(m*n)
+//. S.C -> O(m*n + m*n)
+
 int solve(int r, int c, vector<vector<int>>& mat, vector<vector<long long>>& dp) {
     if (r >= mat.size()) return 0;
 
@@ -31,6 +34,8 @@ int minimumTotal(vector<vector<int>>& triangle) {
 
 //* Method - II (Tabulation DP, Not Space Optimised)
 
+//. T.C -> O(m*n)
+//. S.C -> O(m*n)
 int minimumTotal(vector<vector<int>>& triangle) {
 
     vector<vector<long long>>dp(triangle.size());
@@ -55,6 +60,8 @@ int minimumTotal(vector<vector<int>>& triangle) {
 
 //* Method - III (Tabulation DP, Space Optimised)
 
+//. T.C -> O(m*n)
+//. S.C -> O(n)
 int minimumTotal(vector<vector<int>>& triangle) {
 
     vector<int>lastRow(triangle.back().size());
