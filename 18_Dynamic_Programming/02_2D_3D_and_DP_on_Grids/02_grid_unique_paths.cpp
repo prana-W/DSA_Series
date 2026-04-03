@@ -30,7 +30,7 @@ int uniquePaths(int m, int n) {
 //* Method - II (Better, Memoization DP)
 
 //. T.C -> O(m*n)
-//. S.C -> O(m*n + m*n)
+//. S.C -> O(m*n + m), O(rows) for for recursive stack space 
 
 // This function calculates the total paths to reach the target from (r, c)
 int pathsTillEnd(int r, int c, int& m, int& n, vector<vector<int>>& dp) {

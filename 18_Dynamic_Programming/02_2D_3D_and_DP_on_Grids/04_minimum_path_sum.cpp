@@ -8,7 +8,8 @@ using namespace std;
 //* Method - I (Memoization DP)
 
 //. T.C -> O(m*n)
-//. S.C -> O(m*n + m*n)
+//. S.C -> O(m*n + m), O(rows) for for recursive stack space 
+
 
 // Recursive function to find the minimum sum from (r, c) to (m-1, n-1)
 int solve(int r, int c, vector<vector<int>>& grid, vector<vector<long long>>& dp) {

@@ -6,7 +6,8 @@ using namespace std;
 //* Method - I (Memoization DP)
 
 //. T.C -> O(m*n)
-//. S.C -> O(m*n + m*n)
+//. S.C -> O(m*n + m), O(rows) for for recursive stack space 
+
 
 int solve(int r, int c, vector<vector<int>>& mat, vector<vector<long long>>& dp) {
     if (r >= mat.size()) return 0;

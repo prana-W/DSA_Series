@@ -8,7 +8,7 @@ using namespace std;
 // Start from the first row and find the minimum of all the answers, for ending, it is simlar to previous problem
 
 //. T.C -> O(m*n)
-//. S.C -> O(m*n + m*n)
+//. S.C -> O(m*n + m), O(rows) for for recursive stack space 
 
 int solve(int r, int c, vector<vector<int>>& mat, vector<vector<int>>& dp) {
 

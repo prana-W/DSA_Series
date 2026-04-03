@@ -26,7 +26,8 @@ int brute(vector<vector<int>>& grid) {
 // Same as previous problem, just return the number of paths for the obstacle cell as 0
 
 //. T.C -> O(m*n)
-//. S.C -> O(m*n + m*n)
+//. S.C -> O(m*n + m), O(rows) for for recursive stack space 
+
 
 int paths(int r, int c, vector<vector<int>>& grid, vector<vector<int>>& dp) {
 
