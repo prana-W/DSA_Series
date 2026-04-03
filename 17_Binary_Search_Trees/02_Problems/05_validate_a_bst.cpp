@@ -17,7 +17,11 @@ class TreeNode {
         }
 };
 
-//* Method - I (Better Solution)
+//* Method - I (Brute Force)
+// Brute force to find the inorder traversal, if it is strictly increasing it means, it is a BST
+
+//* Method - II (Better Solution)
+//! Min-Max Concept
 
 //. T.C -> O(n)
 //. S.C -> o(h), due to recursive stack space

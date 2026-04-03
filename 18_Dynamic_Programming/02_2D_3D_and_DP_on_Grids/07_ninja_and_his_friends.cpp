@@ -46,8 +46,10 @@ int cherryPickup(vector<vector<int>>& grid) {
 
 int solve(int r, int c1, int c2, vector<vector<int>>& grid, vector<vector<vector<int>>>& dp) {
 
+    //! We can use a very small value, if in case the grid had negative values
     if (r >= grid.size() || c1 < 0 || c2 < 0 || c1 >= grid[0].size() || c2 >= grid[0].size()) return 0;
 
+    //! This might be needed to modify for negative values in grid
     if(dp[r][c1][c2] != -1) return dp[r][c1][c2];
 
     int dj[3] = {-1, 0, 1};
@@ -75,6 +77,8 @@ int cherryPickup(vector<vector<int>>& grid) {
 }
 
 //* Method - III (Tabulation, Not Space Optimised)
+
+// We start from the base case to the required. Make a loop for each row with two inner loops for the two coloumns of the robot
 
 //. T.C -> O(n*m*m*9)
 //. S.C -> O(n*m*m)
@@ -115,7 +119,6 @@ int cherryPickup(vector<vector<int>>& grid) {
 //* Method - IV (Tabulation, Space Optimised)
 
 // Use a 2D array to keep track of states (c1, c2) for the lastRow, and use this to calculate the answer for each row and update it
-
 
 //. T.C -> O(n*m*m*9)
 //. S.C -> O(m*m)
