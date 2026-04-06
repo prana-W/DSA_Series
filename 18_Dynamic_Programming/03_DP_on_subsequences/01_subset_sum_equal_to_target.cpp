@@ -32,7 +32,7 @@ bool isSubsetSum(vector<int>& arr, int sum) {
 int check(int ind, int target, vector<int>& arr, vector<vector<int>>& dp) {
     
     if (target == 0) return 1;
-    if (ind >= arr.size() || target < 0) return 0;
+    if (ind == arr.size() || target < 0) return 0;
     
     if(dp[ind][target] != -1) return dp[ind][target];
     
@@ -45,7 +45,7 @@ int check(int ind, int target, vector<int>& arr, vector<vector<int>>& dp) {
 bool isSubsetSum(vector<int>& arr, int target) {
     
     // dp[ind][tar] means if it is possible to form target using elements from index ind to end
-    vector<vector<int>>dp(arr.size()+1, vector<int>(target+1, -1));
+    vector<vector<int>>dp(arr.size(), vector<int>(target+1, -1));
 
     return check(0, target, arr, dp);
     
@@ -63,12 +63,13 @@ bool isSubsetSum(vector<int>& arr, int target) {
     // It is possible to get tar = 0 from every index, as we won't take any element from this index till end
     for(int i = 0; i <= arr.size(); i++) {
         dp[i][0] = true;
-    }
+    } 
     
     for (int i = arr.size()-1; i >= 0; i--) {
         for (int tar = 1; tar <= target; tar++) {
 
             bool notTake = dp[i+1][tar];
+
             bool take = false;
             if(tar-arr[i] >= 0) take = dp[i+1][tar-arr[i]];
             
