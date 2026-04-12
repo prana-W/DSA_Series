@@ -10,7 +10,7 @@ using namespace std;
 // Turn visited grid cells into 2, to represtn it is already visited and also to represented it is safe
 
 //. T.C -> O(n*m)
-//. S.C -> O(n*m), only recursive stack space (in worst case when all cells are 1)
+//. S.C -> O(n*m), we are using the grid space itself and also we have recusrvie stack space
 
 void dfs(int r, int c, vector<vector<int>>& grid) {
     if (r < 0 || c < 0 || r >= grid.size() || c >= grid[0].size() || grid[r][c] == 0 || grid[r][c] == 2) return;
