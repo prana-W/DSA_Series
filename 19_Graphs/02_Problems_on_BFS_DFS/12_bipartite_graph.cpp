@@ -9,8 +9,8 @@ using namespace std;
 //* Method - I (DFS)
 // We take a coloured array with initially -1 colour, also we will use the colour 0 or 1 to colour the nodes and simply do DFS for all the components of the graph which has -1 colour, if we find that my adjacent neighbiur has the same colour as me at any given moment we instantly return false
 
-//. T.C -> O(n)
-//. S.C -> O(n)
+//. T.C -> O(v+2e)
+//. S.C -> O(v)
 
 bool dfs(int node, int col, vector<vector<int>>& graph, vector<int>& color) {
 
@@ -51,8 +51,8 @@ bool isBipartite(vector<vector<int>>& graph) {
 //* Method - II (BFS)
 // Same concept as above but with bfs
 
-//. T.C -> O(n)
-//. S.C -> O(n)
+//. T.C -> O(v+2e)
+//. S.C -> O(v)
 
 bool bfs(int inpNode, int col, vector<vector<int>>& graph, vector<int>& color) {
 
