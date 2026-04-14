@@ -66,8 +66,8 @@ bool isCyclic(int V, vector<vector<int>> &edges) {
 
 //! Concept: If we can't form a topo sort of size equal to given veritces, then the graph is not acyclic, i.e. graph is cyclic.
 
-//. T.C -> O(n)
-//. S.C -> O(h)
+//. T.C -> O(V+E)
+//. S.C -> O(V + V+E)
 bool isCyclic(int V, vector<vector<int>> &edges) {
     
     vector<int>indegree(V, 0);

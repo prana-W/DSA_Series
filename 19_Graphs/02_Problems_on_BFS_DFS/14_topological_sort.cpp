@@ -100,6 +100,8 @@ vector<int> topoSort(int V, vector<vector<int>>& edges) {
 //. T.C -> O(V+E)
 //. S.C -> O(V + V+E)
 
+//! Intuition: Indegree of a node = number of prerequisites required for that task
+
 // We will use Queue + Indegree array along with adjancency list for solving this problem.
 
 // 1. Insert all nodes with indegree as 0
