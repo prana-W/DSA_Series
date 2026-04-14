@@ -3,7 +3,7 @@ using namespace std;
 
 //? Problem Link: https://www.geeksforgeeks.org/problems/detect-cycle-in-a-directed-graph/1
 
-//? Pg: 146
+//? Pg: 146 (DFS)
 
 //* Method - I (DFS)
 // We can't do same algoriohtm as we used in the undirected graph for cycle detectiobnn. Here we can say a cycle exists we find a node already visited only if it is in the same path, if we change return(backtrack) and start another recursion call, that counts as another path i.e. on the same path, the node has to be visited again!
@@ -57,4 +57,54 @@ bool isCyclic(int V, vector<vector<int>> &edges) {
     
     return false;
     
+}
+
+//* Method - II (BFS)
+//! Kahn's Algorithm
+
+// Topo sort is only applicble on DAG (directede acyclic graph), we will try to apply topo sort using Kahn's Alorithm on the graph, if we find total nodes during algorithm equal to the total given node, then it means Kahn's algo was successfully applied to all the nodes and hence the graph is acyclic, if not equal, then graph must be cyclic
+
+//! Concept: If we can't form a topo sort of size equal to given veritces, then the graph is not acyclic, i.e. graph is cyclic.
+
+//. T.C -> O(n)
+//. S.C -> O(h)
+bool isCyclic(int V, vector<vector<int>> &edges) {
+    
+    vector<int>indegree(V, 0);
+    vector<vector<int>>adj(V);
+    int ans = 0;
+    
+    // Creating Adjancency List and indegree array
+    for(int i = 0; i < edges.size(); i++) {
+        int u = edges[i][0];
+        int v = edges[i][1];
+        
+        adj[u].push_back(v);
+        indegree[v]++;
+    }
+    
+    queue<int>q;
+    
+    // Pushing all the nodes with 0 indegree
+    for (int i = 0; i < V; i++) {
+        if(indegree[i] == 0) q.push(i);
+    }
+    
+    while(!q.empty()) {
+        
+        int node = q.front();
+        q.pop();
+        
+        // Increase the answer (as this node has effective indegree as 0)
+        ans++;
+        
+        // Reduce indegree for all the adjacent neighbour and push the neighbour node if it has an indegree of 0
+        for(auto elem : adj[node]) {
+            indegree[elem]--;
+            if(indegree[elem] == 0) q.push(elem);
+        }
+    }
+    
+    return ans != V;
+
 }
