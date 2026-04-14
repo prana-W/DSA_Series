@@ -1,8 +1,14 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+//? Problem: https://www.geeksforgeeks.org/problems/topological-sort/1
+
+//! Note: Here it is only possible if no cycle exits, else if a cycle exits, then obviously it won't be able to solved!!
+
+//! DAG (Directed Acyclic Graph) is necessary for Topo Sort
+
 //* Method - I (DFS, Brute, My Solution)
-//! This will give TLE in GFG, so use I.V for DFS, this solution is just for understanding the problem.
+//? This will give TLE in GFG, so use I.V for DFS, this solution is just for understanding the problem.
 
 // Think of the graph like task, we have to do task that are not dependent on any other task first, and then move on, so in this way any tasks is completed first if all its prerequiste is done. 
 
