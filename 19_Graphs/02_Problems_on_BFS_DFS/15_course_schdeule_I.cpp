@@ -41,8 +41,9 @@ bool canFinish(int numCourses, vector<vector<int>>& prerequisites) {
     // Creating Adjancency List from input
     for (int i = 0; i < prerequisites.size(); i++) {
         
-        int u = prerequisites[i][0];
-        int v = prerequisites[i][1];
+        //! Since we have to do bi first then ai, it means edge is from bi to ai
+        int u = prerequisites[i][1];
+        int v = prerequisites[i][0];
         
         adj[u].push_back(v);
     }
@@ -71,8 +72,10 @@ bool canFinish(int numCourses, vector<vector<int>>& prerequisites) {
     
     // Creating Adjancency List and indegree array
     for(int i = 0; i < prerequisites.size(); i++) {
-        int u = prerequisites[i][0];
-        int v = prerequisites[i][1];
+        
+        //! Since we have to do bi first then ai, it means edge is from bi to ai
+        int u = prerequisites[i][1];
+        int v = prerequisites[i][0];
         
         adj[u].push_back(v);
         indegree[v]++;

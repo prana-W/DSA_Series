@@ -57,8 +57,10 @@ vector<int> topoSort(int V, vector<vector<int>>& edges) {
 //* Method - I.V (DFS, Optimal Solution)
 // The above solution is giving TLE as we are using an adjanceney Matrix. Now we will solve the problem using adjancney List and in reverse. Go to a node, do DFS for all the nodes that is depended on this node, then add the current node to the answer, this makes the final answer in reverse, so just reverse the answer before returning it.
 
+//! Note: Instead of reversing the array, we could use a stack and place elements in it and at the end place all the elements of the stack into a new array and return that
+
 //. T.C -> O(V+E)
-//. S.C -> O(V+E)
+//. S.C -> O(V + V+E)
 
 void dfs(int node, vector<vector<int>>& adj, vector<bool>& visited, vector<int>& ans) {
     
