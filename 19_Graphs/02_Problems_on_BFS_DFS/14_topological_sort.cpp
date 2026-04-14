@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+//? Pg: 147 (for BFS)
+
 //? Problem: https://www.geeksforgeeks.org/problems/topological-sort/1
 
 //! Note: Here it is only possible if no cycle exits, else if a cycle exits, then obviously it won't be able to solved!!
@@ -88,6 +90,57 @@ vector<int> topoSort(int V, vector<vector<int>>& edges) {
     }
     
     reverse(ans.begin(), ans.end());
+    
+    return ans;
+}
+
+//* Method - II (BFS)
+//! Kahn's Algorithm
+
+//. T.C -> O(V+E)
+//. S.C -> O(V + V+E)
+
+// We will use Queue + Indegree array along with adjancency list for solving this problem.
+
+// 1. Insert all nodes with indegree as 0
+// 2. Take out node from queue and reduce all the indegrees of its adjancent nodes and push all the adjancet nodes with 0 indegree
+
+vector<int> topoSort(int V, vector<vector<int>>& edges) {
+    
+    vector<int>indegree(V, 0);
+    vector<vector<int>>adj(V);
+    vector<int>ans;
+    
+    // Creating Adjancency List and indegree array
+    for(int i = 0; i < edges.size(); i++) {
+        int u = edges[i][0];
+        int v = edges[i][1];
+        
+        adj[u].push_back(v);
+        indegree[v]++;
+    }
+    
+    queue<int>q;
+    
+    // Pushing all the nodes with 0 indegree
+    for (int i = 0; i < V; i++) {
+        if(indegree[i] == 0) q.push(i);
+    }
+    
+    while(!q.empty()) {
+        
+        int node = q.front();
+        q.pop();
+        
+        // Pushing current node to ans
+        ans.push_back(node);
+        
+        // Reduce indegree for all the adjacent neighbour and push the neighbour node if it has an indegree of 0
+        for(auto elem : adj[node]) {
+            indegree[elem]--;
+            if(indegree[elem] == 0) q.push(elem);
+        }
+    }
     
     return ans;
 }
