@@ -2,7 +2,8 @@
 using namespace std;
 
 //* Method - I (DFS)
-// Just do DFS for Topo sort as we normally did, but in addition to that pass on a pathVisited array, if we encounter pathVisited already marked true in a given path, then return true, which means a cycle exits, in the main function if dfs returns true then a cycle exists and hence return an empty array else reverese the ans array and return the answer
+//! Using Cycle Detection + Topo Sort in Directed Graph using DFS
+// If we encounter pathVisited already marked true in a given path, then return true, which means a cycle exits, in the main function if dfs returns true then a cycle exists and hence return an empty array else reverese the ans array and return the answer.
 
 //. T.C -> O(V+E)
 //. S.C -> O(V + V + V+E)
