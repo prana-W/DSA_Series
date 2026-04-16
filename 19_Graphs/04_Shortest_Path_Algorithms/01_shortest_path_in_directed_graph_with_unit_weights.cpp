@@ -1,11 +1,12 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// Use simple BFS, intitialise dist of all to -1, this array can also be treated to check if a node is already visited or not, just put the distance of current level by increasing the distacne to the previous level by one
+//? Problem: https://www.geeksforgeeks.org/problems/shortest-path-in-undirected-graph-having-unit-distance/1
 
-//. T.C -> O(V+E)
-//. S.C -> O(V + V+E)
+// Use simple BFS, intitialise dist of all to INT_MAX, this array can also be treated to check if a node is already visited or not, just put the distance of the neighbour of the current node if the distance from current ndoe + 1 is smaller than the already set dist of the neihbour
 
+//. T.C -> O(V+2E)
+//. S.C -> O(V + V+2E)
 vector<int> shortestPath(int V, vector<vector<int>> &edges, int src) {
 
     vector<vector<int>>adj(V);
@@ -19,7 +20,7 @@ vector<int> shortestPath(int V, vector<vector<int>> &edges, int src) {
         
     }
     
-    vector<int>dist(V, -1);
+    vector<int>dist(V, INT_MAX);
     
     queue<int>q;
     q.push(src);
@@ -27,20 +28,20 @@ vector<int> shortestPath(int V, vector<vector<int>> &edges, int src) {
     
     while(!q.empty()) {
         
-        int size = q.size();
+        int node = q.front();
+        q.pop();
         
-        for (int i = 0; i < size; i++) {
-            int node = q.front();
-            q.pop();
-            
-            for(auto elem : adj[node]) {
-                if(dist[elem] == -1) {
-                    q.push(elem);
-                    dist[elem] = dist[node] + 1;
-                }
+        for(auto elem : adj[node]) {
+            if(dist[node] + 1 < dist[elem]) {
+                q.push(elem);
+                dist[elem] = dist[node] + 1;
             }
         }
         
+    }
+    
+    for (int i = 0; i < V; i++) {
+        if(dist[i] == INT_MAX) dist[i] = -1;
     }
     
     return dist;
