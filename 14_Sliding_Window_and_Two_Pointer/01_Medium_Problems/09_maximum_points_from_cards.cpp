@@ -27,6 +27,11 @@ int maxScore(vector<int>& cardPoints, int k) {
     
 }
 
+//* Method - II (Better Solution)
+// Vary x from 0 to k, and choose x elements from front and (k-x) from the end, then find the maximum sum of these
+//. T.C -> O(k^2)
+//. S.C -> O(1)
+
 //* Method - II (Optimal Solution)
 // We have to find the maximum sum from combined from the ends only of size k, so we can solve this, by first finding the minimum sum of window (n-k) in the array, then just subtract that form the total sum to find the answer
 
