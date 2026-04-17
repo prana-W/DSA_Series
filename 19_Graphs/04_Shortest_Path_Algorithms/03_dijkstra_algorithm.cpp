@@ -45,8 +45,8 @@ vector<int> dijkstra(int V, vector<vector<int>> &edges, int src) {
     
     // Outer loop for about O(V)
     while(!pq.empty()) {
-        auto [d, node] = pq.top(); // O(log(heap_size))
-        pq.pop();
+        auto [d, node] = pq.top(); 
+        pq.pop(); // O(log(heap_size))
         
         // O(V) in worst
         for (auto elem : adj[node]) {

@@ -8,6 +8,8 @@ using namespace std;
 //! Method - III is the standard solution for this DAG as due to DAG we can use Topo Sort which is a better solution than all the other solutions
 
 //* Method - I (My Method, DFS+DP)
+// This approach is better than my second method using BFS, as memoization ensures 1 computation per node only
+
 // Reverse all the edges. Now the question becomes the shortest distance from a node to src(0). Now just use DFS from 0 to V-1 vertices, to check all the valid paths and finding the minimum, we will use memoization DP for instantly finding the distance from a particular node to src(0), if we have already found that distance
 
 // dfs(node) gives the shortest distance from node to src(0)
@@ -70,9 +72,11 @@ vector<int> shortestPath(int V, int E, vector<vector<int>>& edges) {
 //* Method - II (My Method, Simple BFS)
 // Same as before, if the sum of distance of neigbour with weight is less than the alreay set dist of the negibour, then update the dist
 
-//! This approach is not optimal as several nodes might be processed again and again, so it will slightly increase the time complexity
+//! This approach is not optimal as several nodes might be processed again and again, so it will increase the time complexity, if each node once than V + E, but if many times than it becomes a multiple and hence increases to a square!!
 
-//. T.C -> O(V+E)
+//! Node is processed multiple times as we don't get the optimal distance at once due to weighted nature of graph
+
+//. T.C -> O(V*E) in worst case due to same node being processed multiple times!!
 //. S.C -> O(V+E)
 vector<int> shortestPath(int V, int E, vector<vector<int>>& edges) {
     
