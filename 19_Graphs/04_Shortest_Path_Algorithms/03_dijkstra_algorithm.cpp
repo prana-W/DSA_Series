@@ -19,6 +19,7 @@ using namespace std;
 //. T.C -> O(E*log(V)), E is total number of edges and V is the number of nodes
 // O(V^2 * log(heap_size)) -> O(E*log(V^2)) -> O(E*log(V)), (V^2 -> E)
 
+//. S.C -> O(V+E)
 vector<int> dijkstra(int V, vector<vector<int>> &edges, int src) {
     
     vector<vector<pair<int, int>>>adj(V);
@@ -37,6 +38,7 @@ vector<int> dijkstra(int V, vector<vector<int>> &edges, int src) {
     
     vector<int>dist(V, INT_MAX);
     
+    // O(E) at max
     priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
     dist[src] = 0;
     pq.push({0, src});
@@ -63,6 +65,9 @@ vector<int> dijkstra(int V, vector<vector<int>> &edges, int src) {
 
 //* Method - II (Using Set DS)
 //! For undirected weighted graph
+
+//. T.C -> O(E*log(E)
+//. S.C -> O(V+E)
 
 // Just used set DS instead of min-heap. Smallest element will be the first element in set, so use that and erase that
 
