@@ -3,6 +3,8 @@ using namespace std;
 
 // A simple Dijstra' Algorithm and find the dist from src to all the nodes, and find the maximum of all
 
+// Since nodes are 1-based index, so subtraact 1 for the node input to solve all of it using 0-based indexing
+
 //. T.C -> O((E+V) * log(V))
 //. S.C -> O(E+V)
 int networkDelayTime(vector<vector<int>>& times, int n, int k) {

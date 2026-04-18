@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+//? Video Solution for Method - III by Aditya Verma: https://www.youtube.com/watch?v=s6ZDQXTyo7I
+
 //* Method - I (Brute, Modified Bellman-Ford Algorithm)
 // Todo: Do after doing Bellman-Ford Algorithm
 
@@ -21,6 +23,8 @@ int CheapestFLight(int n, vector<vector<int>>& flights, int src, int dst, int k)
     if(cost[dst] == 1e9) return -1;
     return cost[dst];
 }
+
+// A simple Dijstra's algoithm on price with bounding k will not work, as we discrad expensive paths, and our answer might be found from an expensive path. That's why we don't use Naive Dijstra's over price, instead we do a BFS traversal and travel level by level which keeps track of k, and then try to find the minimum cost using this, also when we are free to revisit same nodes again. Since we just need to do level by level traversal, a BFS with Queue is the most optimal approach, so just focus on Method - III
 
 //* Method - II (Better Solution, Dijstra's Algo with PQ)
 
@@ -66,11 +70,12 @@ int findCheapestPrice(int n, vector<vector<int>>& flights, int src, int dst, int
     
     if (costs[dst] == 1e9) return -1;
     return costs[dst];
-    
-    
+
 }
 
 //* Method - III (Optimal, Queue Based Approach)
+
+// Go level by level till k and also find the minimum cost in it from src to dest. Also we are free to update and revisit nodes, if we find a better price to reach there
 
 //! Note: As the state is stop and cost, we put both in the queue, as both are needed and we don't need current value, but the value at the tiome the entry was made
 
@@ -81,7 +86,7 @@ int findCheapestPrice(int n, vector<vector<int>>& flights, int src, int dst, int
 
 int CheapestFLight(int n, vector<vector<int>>& flights, int src, int dst, int k) {
     
-    vector<pair<int, int> > adj[n];
+    vector<pair<int, int>> adj[n];
     for (auto it : flights) {
         adj[it[0]].push_back({ it[1], it[2] });
     }
