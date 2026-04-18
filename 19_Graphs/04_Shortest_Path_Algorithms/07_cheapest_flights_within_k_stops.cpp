@@ -22,13 +22,61 @@ int CheapestFLight(int n, vector<vector<int>>& flights, int src, int dst, int k)
     return cost[dst];
 }
 
-//* Method - II (Better, Dijstra's Algo with PQ)
-// Same solution as below buut with PQ, unnnncessery, idk why :(
+//* Method - II (Better Solution, Dijstra's Algo with PQ)
+
+//. T.C -> O(k*E*log(V))
+//. S.C -> O(V+E)
+
+int findCheapestPrice(int n, vector<vector<int>>& flights, int src, int dst, int k) {
+
+    vector<pair<int, int> > adj[n];
+    for (auto it : flights) {
+        adj[it[0]].push_back({ it[1], it[2] });
+    }
+    
+    // (stops, (node, cost))
+    // priority_queue<pair<int, pair<int, int>>> q;
+    priority_queue<pair<int, pair<int, int>>, vector<pair<int, pair<int, int>>>, greater<pair<int, pair<int, int>>>> q;
+    vector<int> costs(n, 1e9);
+    
+    // We can have k+1 stops after src (including dest)
+    q.push({0, {src, 0}});
+    costs[src] = 0;
+    
+    while(!q.empty()) {
+        
+        auto it = q.top();
+        q.pop();
+        
+        int stops = it.first, node = it.second.first, cost = it.second.second;
+        
+        // if stop is more than k, then no need to do further stuffs
+        if (stops > k) continue;
+        
+        for (auto elem : adj[node]) {
+            int nei = elem.first;
+            int weight = elem.second;
+            
+            if (cost + weight < costs[nei] && stops <= k) {
+                costs[nei] = cost + weight;
+                q.push({stops+1, {nei, cost+weight}});
+            } 
+        }
+    }
+    
+    if (costs[dst] == 1e9) return -1;
+    return costs[dst];
+    
+    
+}
 
 //* Method - III (Optimal, Queue Based Approach)
-//! AI is saying it is quadratic solution, which even I believe, but in GFG, LeetCode, striver and Aditya Verma this type of solution is discussed
-// Todo: Verify this!!
-//. T.C -> O(V+E)
+
+//! Note: As the state is stop and cost, we put both in the queue, as both are needed and we don't need current value, but the value at the tiome the entry was made
+
+// As the state stop is unit, it increases one-by-one, so that's why queue is better, it is similar to why queue was better in unweighted graph (there we had weight = 1), here we have 1 stop count beteween each flight
+
+//. T.C -> O(k*(V+E)), at worst case there can be k times reprocessment of a node, because after that we don't proceess further due to (stops > k) condition
 //. S.C -> O(V+E)
 
 int CheapestFLight(int n, vector<vector<int>>& flights, int src, int dst, int k) {
