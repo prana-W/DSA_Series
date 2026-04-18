@@ -69,8 +69,8 @@ vector<int> shortestPath(int V, int E, vector<vector<int>>& edges) {
     return dist;
 }
 
-//* Method - II (My Method, Simple BFS)
-// Same as before, if the sum of distance of neigbour with weight is less than the alreay set dist of the negibour, then update the dist
+//* Method - II (My Method, Using Queue)
+// If the sum of distance of neigbour with weight is less than the alreay set dist of the negibour, then update the dist
 
 //! This approach is not optimal as several nodes might be processed again and again, so it will increase the time complexity, if each node once than V + E, but if many times than it becomes a multiple and hence increases to a square!!
 
@@ -201,3 +201,4 @@ vector<int> shortestPath(int V, int E, vector<vector<int>>& edges) {
 }
 
 //* Method - IV (Not Reccomended, Dijkstra's Algorithm will work as well)
+//. T.C -> O(E*log(V))

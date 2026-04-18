@@ -47,6 +47,9 @@ vector<int> dijkstra(int V, vector<vector<int>> &edges, int src) {
     while(!pq.empty()) {
         auto [d, node] = pq.top(); 
         pq.pop(); // O(log(heap_size))
+
+        //! if already a smaller dist exists for node, then continue
+        if (d > dist[node]) continue;
         
         // O(V) in worst
         for (auto elem : adj[node]) {
@@ -95,6 +98,8 @@ vector<int> dijkstra(int V, vector<vector<int>> &edges, int src) {
     while(!st.empty()) {
         auto [d, node] = *st.begin();
         st.erase(st.begin());
+
+        if (d > dist[node]) continue;
         
         for (auto elem : adj[node]) {
             int nei = elem.first;

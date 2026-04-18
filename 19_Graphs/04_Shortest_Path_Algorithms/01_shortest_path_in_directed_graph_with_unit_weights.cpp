@@ -5,6 +5,9 @@ using namespace std;
 
 // Use simple BFS, intitialise dist of all to INT_MAX, this array can also be treated to check if a node is already visited or not, just put the distance of the neighbour of the current node if the distance from current ndoe + 1 is smaller than the already set dist of the neihbour
 
+//* Method - I (BFS)
+// used on unweighted graph in finding shortest path
+
 //. T.C -> O(V+2E)
 //. S.C -> O(V + V+2E)
 vector<int> shortestPath(int V, vector<vector<int>> &edges, int src) {
@@ -32,7 +35,7 @@ vector<int> shortestPath(int V, vector<vector<int>> &edges, int src) {
         q.pop();
         
         for(auto elem : adj[node]) {
-            if(dist[node] + 1 < dist[elem]) {
+            if(dist[elem] == INT_MAX) {
                 q.push(elem);
                 dist[elem] = dist[node] + 1;
             }

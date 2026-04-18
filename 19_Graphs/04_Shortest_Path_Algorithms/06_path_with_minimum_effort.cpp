@@ -53,7 +53,7 @@ int minimumEffortPath(vector<vector<int>>& heights) {
 
 //! BFS can be replaced by DFS as well
 
-//. T.C -> O(nm*log(nm)), O(nm) for each BFS and log(1e6)
+//. T.C -> O(nm*log(nm)), O(nm) for each BFS and log(1e6) at max
 //. S.C -> O(nm)
 
 bool isPossible(int eff, vector<vector<int>>& h) {
@@ -124,7 +124,7 @@ int minimumEffortPath(vector<vector<int>>& heights) {
 //* Method - III (Binary Search + DFS)
 // Same concept as above, just use DFS instead of BFS
 
-//. T.C -> O(nm*log(nm)), O(nm) for each BFS and log(1e6)
+//. T.C -> O(nm*log(nm)), O(nm) for each DFS and log(1e6) at max
 //. S.C -> O(nm)
 
 bool dfs(int r, int c, vector<vector<int>>& h, vector<vector<bool>>& vis, int eff) {

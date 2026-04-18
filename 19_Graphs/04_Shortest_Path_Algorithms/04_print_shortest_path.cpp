@@ -102,6 +102,9 @@ vector<int> shortestPath(int n, int m, vector<vector<int>>& edges) {
     while(!pq.empty()) {
         auto [d, node] = pq.top();
         pq.pop();
+
+        //! if already small dist exists for the node
+        if (d > dist[node]) continue;
         
         for (auto elem : adj[node]) {
             int nei = elem.first;
