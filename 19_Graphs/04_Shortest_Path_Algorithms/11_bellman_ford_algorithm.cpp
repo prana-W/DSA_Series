@@ -3,6 +3,8 @@ using namespace std;
 
 //! For a undirected graph, convert it into directed by having two edges in parrel with the same weight
 
+//! Note: If we have undirected graph with negative weights, when converted into directed graph, it will automatcally form negative cycle between nodes that had negative weights, resulting in no defined answer, so just check in case of undirected, if any of the eeight is negative, we can't determine the shortes path 
+
 // This algorithm is used when we want to find shortest path in a negative weighted graph optimally.
 
 // If the path sum of a cycle comes out to be negative it is said to be negative cycle.

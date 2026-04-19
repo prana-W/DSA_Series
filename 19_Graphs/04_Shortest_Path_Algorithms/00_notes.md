@@ -17,3 +17,7 @@
     - All previous methods fail and we have to use Bellman Ford Approach
     - If we find a negative cycle in the graph (by checking for one more relaxation after Bellman Ford Algorithm), then we can't find the shortest path.
     - Also any undirected graph with negative weights, when converted into directed graph gets a negative cycle, hence we can't find the shortest path for such graph.
+
+# Multi Source Shortest Path
+
+- Floyd Warshall Algorithm
