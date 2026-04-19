@@ -21,3 +21,8 @@
 # Multi Source Shortest Path
 
 - Floyd Warshall Algorithm
+    - We have a time complexity of O(V^3)
+    - Also helps in detecting negative cycles
+    
+- Dijstra's Algorithm over all the nodes iff all weights are postive
+    - Takes O(V*E*log(V)) time complexity, so this can be better solution if grtaph deosn't have negative weights and also the graph is sparse, if graph is very dense, then E can reach about V^2, making it more time complex than Floyd Warshall Algorithm
