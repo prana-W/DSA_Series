@@ -34,7 +34,7 @@ void spanningTree(int V, vector<vector<int>>& edges) {
     priority_queue<pair<int, pair<int, int>>, vector<pair<int, pair<int, int>>>, greater<pair<int, pair<int, int>>>>pq;
     pq.push({0, {0, -1}});
     
-    int sum = 0;
+    int sum = 0; // MST weight
     vector<pair<int, int>>mst; // This contains the nodes connected in the final MST
     
     while(!pq.empty()) {
