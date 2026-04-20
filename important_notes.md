@@ -13,6 +13,7 @@
 - Make the code readable. Break complex codes into multiple functions and then use that function instead of doing all the code into a single block.
 - Try to avoid global variables
 - If asked to find a maximum or minimum, chances are we can use Binary Search on the answer
+- During comparataor in sorting, never put equality case (==) inside the if condition, let it be handled naturally
 
 # Important Concepts to be Learnt:
 

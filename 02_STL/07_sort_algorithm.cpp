@@ -5,6 +5,8 @@ using namespace std;
 // It will return boolean value
 // It will have two parameters, both being the type of data we are sorting
 
+//! Note: Inside comb, never put == (equality) condition in a if condition, as it will lead to contracdictions!
+
 bool comp(pair<int, int> p1, pair<int, int> p2)
 {
     if (p1.second < p2.second) return true; // if the above condition, it is correct order (so return true)
@@ -12,7 +14,7 @@ bool comp(pair<int, int> p1, pair<int, int> p2)
    
 // If we are at this point, it means that both of them are equal!
 
-    if (p1.first >= p2.first) return true; // This is the correct condition/order, is second element in the pair is equal
+    if (p1.first > p2.first) return true; // This is the correct condition/order, is second element in the pair is equal
     return false; // it means, p1.first < p2.first, so this is incorrect desired order, so false
 }
 

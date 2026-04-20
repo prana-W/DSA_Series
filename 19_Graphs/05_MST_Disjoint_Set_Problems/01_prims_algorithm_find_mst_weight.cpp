@@ -3,6 +3,9 @@ using namespace std;
 
 //? Pg: 152
 
+// Note: We don't need to return mst array in GFG, so no need to store MST connections, just keep track of sum (mst_weight)
+//? Problem Link: https://www.geeksforgeeks.org/problems/minimum-spanning-tree/1
+
 // Start with a visited array, min-heap (PQ) with wt, node and parent, initially insert the node 0 and its parent as -1. Also always mark visited only after popping it (not unlike visiting when inserting)
 
 // Go to the adjancent nodes of the top node and if it is marked as unvisited then, push it in PQ
@@ -14,6 +17,8 @@ using namespace std;
 // Also before doing anything, check if it is already visited
 
 // Prim's algorithm works on the intuition of greedy. We take the node and then use a pq to insert the least weight and then consider it, and ignore when the node is already visited, as we only need one edge between nodes
+
+//! Note: There is no need to keeping parent in PQ, if all we want is the MST weight and not the actual MST connections
 
 //* Finding MST and sum
 
