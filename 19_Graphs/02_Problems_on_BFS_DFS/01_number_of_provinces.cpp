@@ -82,3 +82,70 @@ int methodII(vector<vector<int>>& isConnected) {
     return ans;
     
 }
+
+//* Method - III (DSU)
+
+// Simply apply DSU and find the total ultimate bosses or ultimate parents after the implementation, to find the total number of ultimate bosses, just see if the parent of someone is itself, then that element is the ultimate boss and just count it
+
+//. T.C -> O(V^2 * alpha(V)), to traverse the adjancency matrix
+
+class DSU {
+
+    vector<int>size, parent;
+
+    public:
+        
+        DSU(int n) {
+            for (int i = 0; i < n+1; i++) {
+                parent.push_back(i);
+                size.push_back(1);
+            }
+        }
+
+        int findUPar(int n) {
+            if (parent[n] == n) return n;
+
+            return parent[n] = findUPar(parent[n]);
+        }
+
+        void unionBySize(int u, int v) {
+            int upU = findUPar(u);
+            int upV = findUPar(v);
+
+            if(upU == upV) return;
+
+            if(size[upU] < size[upV]) {
+                parent[upU] = upV;
+                size[upV] += size[upU];
+            }
+            else {
+                parent[upV] = upU;
+                size[upU] += size[upV];
+            }
+        }
+};
+
+int findCircleNum(vector<vector<int>>& isConnected) {
+
+    int V = isConnected.size();
+
+    DSU ds(V);
+
+    //! Second loop from row+1, as rest will already be explored before
+    for (int i = 0; i < V; i++) {
+        for (int j = i+1; j < V; j++) {
+
+            //! Since nodes are 1-based indexed, so pass the nodes as i+1 and j+1
+            if(isConnected[i][j] == 1) ds.unionBySize(i+1, j+1);
+        }
+    }
+
+    int ans = 0;
+
+    for (int node = 1; node <= V; node++) {
+        if(ds.findUPar(node) == node) ans++;
+    }
+
+    return ans;
+    
+}
