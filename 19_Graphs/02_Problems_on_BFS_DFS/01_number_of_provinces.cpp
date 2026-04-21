@@ -32,9 +32,10 @@ int methodI(vector<vector<int>>& isConnected) {
     int ans = 0;
 
     for(int i = 0; i < n; i++) {
-        if (!visited[i]) ans++;
-
-        dfs(i, visited, isConnected);
+        if (!visited[i]) {
+            ans++;
+            dfs(i, visited, isConnected);
+        }
     }
 
     return ans;
@@ -74,9 +75,10 @@ int methodII(vector<vector<int>>& isConnected) {
     int ans = 0;
 
     for(int i = 0; i < n; i++) {
-        if (!visited[i]) ans++;
-
-        dfs(i, visited, adj);
+        if (!visited[i]) {
+            ans++;
+            dfs(i, visited, adj);
+        }
     }
 
     return ans;
