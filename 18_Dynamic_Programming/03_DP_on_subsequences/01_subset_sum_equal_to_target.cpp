@@ -57,27 +57,30 @@ bool isSubsetSum(vector<int>& arr, int target) {
 //. S.C -> O(n*target)
 bool isSubsetSum(vector<int>& arr, int target) {
     
-    // dp[ind][tar] means if it is possible to form target using elements from index ind to end
-    vector<vector<bool>>dp(arr.size()+1, vector<bool>(target+1, false));
+    // dp[i][tar] = can we form tar using elements from 0 → i
+    vector<vector<bool>>dp(arr.size(), vector<bool>(target+1, false));
     
     // It is possible to get tar = 0 from every index, as we won't take any element from this index till end
-    for(int i = 0; i <= arr.size(); i++) {
+    for(int i = 0; i < arr.size(); i++) {
         dp[i][0] = true;
     } 
+
+    //! Another base case
+    if (arr[0] <= target) dp[0][arr[0]] = true;
     
-    for (int i = arr.size()-1; i >= 0; i--) {
+    for (int i = 1; i < arr.size(); i++) {
         for (int tar = 1; tar <= target; tar++) {
 
-            bool notTake = dp[i+1][tar];
+            bool notTake = dp[i-1][tar];
 
             bool take = false;
-            if(tar-arr[i] >= 0) take = dp[i+1][tar-arr[i]];
+            if(tar-arr[i] >= 0) take = dp[i-1][tar-arr[i]];
             
             dp[i][tar] = notTake || take;
         }
     }
 
-    return dp[0][target];
+    return dp.back()[target];
     
 }
 
@@ -89,26 +92,16 @@ bool isSubsetSum(vector<int>& arr, int target) {
 //. S.C -> O(n)
 bool isSubsetSum(vector<int>& arr, int target) {
     
-    // dp[tar] means if it is possible to form target
-    vector<bool>dp(target+1, false); // This represents the next row
-    dp[0] = true; // It is always possible to get 0 sum
+    vector<bool> dp(target + 1, false);
+    dp[0] = true;  // sum 0 is always possible
     
-    for (int i = arr.size()-1; i >= 0; i--) {
-        
-        vector<bool>currDP(target+1);
-        
-        for (int tar = 0; tar <= target; tar++) {
-            
-            bool notTake = dp[tar];
-            bool take = false;
-            if(tar-arr[i] >= 0) take = dp[tar-arr[i]];
-            
-            currDP[tar] = notTake || take;
+    for (int i = 0; i < arr.size(); i++) {
+
+        //! Reverse Loop ensures there is no collision and hence we don't require temp array
+        for (int tar = target; tar >= arr[i]; tar--) {
+            dp[tar] = dp[tar] || dp[tar - arr[i]];
         }
-        
-        dp = currDP;
     }
 
     return dp[target];
-    
 }

@@ -15,6 +15,8 @@ Inorder to create the data structure we have two function, one is findParent whi
 
 - Consider it has many different sets, to find the set of an element, just find its ultimate parent, we might be asked if two elements belong to same set or not. We might also have to find the union of two sets, and in both these tasks, disjoint set data structure is used.
 
+- Size array or rank array is only used for further optimisation, we can do simply union the two elements even without them, although that would be slightly unoptimised
+
 # Implementation of Union (u, v)
 
 - Find the ultimate parent of u and v called pu and pv
