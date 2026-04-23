@@ -41,13 +41,15 @@ int perfectSum(vector<int>& arr, int target) {
 //. S.C -> O(n*target + n)
 int perfectSum(vector<int>& arr, int target) {
     
-    // dp[ind][tar]: Number of subsets from 0 to ind with tar starting at target at index ind, so we need to return dp[n-1][target], as we want total subsets from start to end with tar as target at index n-1
+    // dp[ind][tar]: Total ways from 0 to ind with sum as tar
     vector<vector<int>>dp(arr.size(), vector<int>(target+1, 0));
     
     // If we don't pick anything from first index and we already have tar as 0, then that is one possiblity
     dp[0][0] = 1;
 
     // We can pick the first element and then the tar would reach 0, so that's another one possiblity
+
+    //! Note: we increase it by one
     if(arr[0] <= target) dp[0][arr[0]] += 1;
     
     for (int i = 1; i < arr.size(); i++) {
