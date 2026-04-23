@@ -3,7 +3,7 @@ using namespace std;
 
 //! There can be positives and 0s in the given array
 
-// ------------------ My Approach ----------------
+//* My Approach (See TUF Approach in last for a better code and approach) ----------------
 
 //* Method - I (Memoization DP)
 
@@ -15,12 +15,13 @@ using namespace std;
 int solve(int ind, int target, vector<int>& arr, vector<vector<int>>& dp) {
     
     if (ind == arr.size() && target == 0) return 1;
-    if (ind == arr.size() || target <  0) return 0;
+    if (ind == arr.size()) return 0;
     
     if (dp[ind][target] != -1) return dp[ind][target];
     
     int notPick = solve(ind+1, target, arr, dp);
-    int pick = solve(ind+1, target-arr[ind], arr, dp);
+    int pick = 0;
+    if(target-arr[ind] >= 0) pick = solve(ind+1, target-arr[ind], arr, dp);
     
     return dp[ind][target] = pick + notPick;
 }
@@ -145,7 +146,7 @@ int countPartitions(vector<int>& arr, int diff) {
     return ans;
 }
 
-//* Most Optimal (TUF Approach)
+//* Most Optimal (TUF Approach) ----------------
 
 // We know s - 2*s1 = d, so rearranging, our s1 becomes (s-d)/2, so in other words we just have to find total sets whose sum equal to s1 i.e. (s-d)/2, so just reuse the previous code and put target as (s-d)/2
 
