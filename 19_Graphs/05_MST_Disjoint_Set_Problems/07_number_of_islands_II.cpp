@@ -92,7 +92,7 @@ vector<int> numOfIslandsII(int n, int m, vector<vector<int>> &q){
 
 //* Method - II (Optimal Approach, TUF Method)
 
-// Just use simple DSU implementation. Maintain a count that keeps track of total islands, initially keep it at zero, and each time a water is turned into island, then increase the counter, also after each succesfull union of two islands, decrese the cnt and at the end push the cnt which is the total islands till that query
+// Just use simple DSU implementation. Maintain a count that keeps track of total islands, initially keep it at zero, and each time a water is turned into island, then increase the counter, also after each succesfull union of two islands, decrese the cnt and at the end push the cnt which is the total islands till that query. If the two land is already part of the same island, then we can't decrese the counter
 
 //. T.C -> O(Q)
 //. S.C -> O(n*m + Q)
@@ -157,8 +157,6 @@ vector<int> numOfIslandsII(int n, int m, vector<vector<int>> &q){
         cnt++;
 
         mat[r][c] = 1;
-
-        ds.findUPar(currIndex);
 
         int dx[4] = {1, -1, 0, 0};
         int dy[4] = {0, 0, 1, -1};
